@@ -1,0 +1,17 @@
+body {
+	background: lightblue;
+	font-family: Verdana;
+	font-size: 12pt;
+	margin: 10pt;
+}
+
+section
+{
+	border: 1pt solid black;
+	background: white;
+}
+
+article
+{
+	margin: 5pt;
+}

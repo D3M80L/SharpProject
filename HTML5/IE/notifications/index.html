@@ -3,17 +3,28 @@
 <head>
 	<meta charset="utf-8" />
 	
-	 <meta name="application-name" content=" Contoso" />
-	  <meta name="msapplication-TileColor" content=" #009900" />
-	  <meta name="msapplication-square70x70logo" content="images/smalltile.png" />
-	  <meta name="msapplication-square150x150logo" content="images/mediumtile.png" />
-	  <meta name="msapplication-wide310x150logo" content="images/widetile.png" />
-	  <meta name="msapplication-square310x310logo" content="images/largetile.png" />
-	  <meta name="msapplication-notification" content="frequency=30; polling-uri=notifications/contoso1.xml;polling-uri2=notifications/contoso2.xml; polling-uri3=notifications/contoso3.xml" />
+	<meta name="application-name" content="Web Tile" />
+	<meta name="msapplication-config" content="browerconfig.xml"/>
+	<!--
+	<meta name="msapplication-TileColor" content="#FFFF00" />
+	<meta name="msapplication-square70x70logo" content="images/square70x70logo.png" />
+	<meta name="msapplication-square150x150logo" content="images/square150x150logo.png" />
+	<meta name="msapplication-wide310x150logo" content="images/wide310x150logo.png" />
+	<meta name="msapplication-square310x310logo" content="images/large310x310logo.png" />
+	<meta name="msapplication-notification" content="frequency=30;polling-uri=http://marcindembowski.wordpress.com/feed/" />
+	-->
 	
-	<title>IE 11 notification demo</title>
+	<link rel="stylesheet" href="style.css">
+	<title>IE 11 pinned tile demo.</title>
 </head>
 <body>
-
+	<section>
+		<article>
+			<header>
+				<h2>Pinned tile demo.</h2>
+			</header>
+			<p>Display me as tile in Windows 8.1 Start menu.</p>
+		</article>
+	</section>
 </body>
 </html>

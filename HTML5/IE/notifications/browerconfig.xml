@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="images/square70x70logo.png"/>
+      <square150x150logo src="images/square150x150logo.png"/>
+      <wide310x150logo src="images/wide310x150logo.png"/>
+      <square310x310logo src="images/large310x310logo.png"/>
+      <TileColor>#00FF00</TileColor>
+    </tile>
+    <notification>
+      <polling-uri src="http://marcindembowski.wordpress.com/feed/"/>
+      <frequency>30</frequency>
+      <cycle>1</cycle>
+    </notification>
+  </msapplication>
+</browserconfig>
