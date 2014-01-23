@@ -16,10 +16,11 @@ namespace TE003
     {
         static void Main(string[] args)
         {
+            // 1ST - run the method from a thread
             ThreadPool.QueueUserWorkItem(Run);
             Thread.Sleep(1000);
 
-            // asynchronous delegates
+            // 2ND - asynchronous delegates
             Func<int, int> calculator = Calculate;
             calculator.BeginInvoke(10, CalculationCallback, calculator); // NOTE: the callback
             Console.WriteLine("Main thread is doing some stuff up here...");

@@ -16,9 +16,9 @@ namespace TE004
     {
         static void Main(string[] args)
         {
-            //var calc = new ThreadUnsafe();
+            var calc = new ThreadUnsafe();
 
-            var calc = new ThreadSafe();
+            //var calc = new ThreadSafe();
 
             for (int i = 0; i < 100; i++)
             {

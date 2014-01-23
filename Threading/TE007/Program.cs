@@ -13,7 +13,7 @@ namespace TE007
         static void Main(string[] args)
         {
             //_waitHandle = new AutoResetEvent(false); // NOTE: false/true
-            _waitHandle = new ManualResetEvent(false);
+            _waitHandle = new ManualResetEvent(false); // NOTE: var manualResetEventSlim = new ManualResetEventSlim();
 
             ThreadPool.QueueUserWorkItem(_ => Run("A"));
             ThreadPool.QueueUserWorkItem(_ => Run("B"));
