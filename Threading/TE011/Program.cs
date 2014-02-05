@@ -25,10 +25,10 @@ namespace TE011
         // NOTE: The thread static is initialized for each thread in different way
         // when initialized, then another thread will see null
         //[ThreadStatic]
-        //private static Random _rnd = new Random();
+        private static Random _rnd = new Random();
 
         //private Random _rnd = new Random(); // NOTE: Random is not thread safe
-        private ThreadLocal<Random> _rnd = new ThreadLocal<Random>(() => new Random());
+        //private ThreadLocal<Random> _rnd = new ThreadLocal<Random>(() => new Random());
 
         public void Generate()
         {
