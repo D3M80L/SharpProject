@@ -32,7 +32,7 @@ namespace TE009
             {
                 Thread.Sleep(10000);
             }
-            catch (ThreadInterruptedException interrupted)
+            catch (ThreadInterruptedException)
             {
                 Console.WriteLine("Interrupted exception.");
             }
@@ -43,7 +43,7 @@ namespace TE009
                 {
                     Thread.Sleep(10000); // simulate work
                 }
-                catch (ThreadAbortException abortedException)
+                catch (ThreadAbortException)
                 {
                     Console.WriteLine("Aborted exception 1");
                 }

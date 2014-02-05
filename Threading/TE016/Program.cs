@@ -46,7 +46,7 @@ namespace TE016
             {
                 task.Wait();
             }
-            catch (AggregateException ae)
+            catch (AggregateException)
             {
                 Console.WriteLine("Aggregate exception");
             }

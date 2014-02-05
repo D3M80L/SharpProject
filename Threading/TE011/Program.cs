@@ -32,7 +32,7 @@ namespace TE011
 
         public void Generate()
         {
-            Console.WriteLine("this.GetHashCode()={0}, _rnd.GetHashCode()={1}", this.GetHashCode(), _rnd.Value.GetHashCode());
+            Console.WriteLine("this.GetHashCode()={0}, _rnd.GetHashCode()={1}", this.GetHashCode(), _rnd.GetHashCode());
         }
     }
 }

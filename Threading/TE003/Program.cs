@@ -51,7 +51,7 @@ namespace TE003
                 int result = target.EndInvoke(asyncResult); // NOTE: the exception will be pushed from the pooled thread
                 Console.WriteLine("Finished calculation with value {0}. Is from pool? {1}", result, Thread.CurrentThread.IsThreadPoolThread);
             }
-            catch(NullReferenceException nullReferenceException)
+            catch(NullReferenceException)
             {
                 Console.WriteLine("Exception occured.");
             }
