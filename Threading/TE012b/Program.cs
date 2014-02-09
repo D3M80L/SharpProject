@@ -34,11 +34,15 @@ namespace TE012b
 
     class RawFields
     {
+        private bool someOtherFlag = false;
         private bool flag = false;
         private long result = 0;
+        private int anotherResult = 0;
         public void Set()
         {
             result = 8;
+            someOtherFlag = false;
+            anotherResult = 1;
             flag = true; // may be optimized and reordered
         }
 
@@ -61,6 +65,10 @@ namespace TE012b
     /// will be 10. Volatile fields does not allow bit shifting and few other operations.
     /// The volatile keyword gives no value on Intel x86 and x64 processors, where a fence is 
     /// used on read and writes.
+    /// 
+    /// For some details about volatile (why not to use it) go to:
+    /// - http://blogs.msdn.com/b/ericlippert/archive/2011/06/16/atomicity-volatility-and-immutability-are-different-part-three.aspx
+    /// - http://joeduffyblog.com/2010/12/04/sayonara-volatile/
     /// </summary>
     class VolatileFields
     {

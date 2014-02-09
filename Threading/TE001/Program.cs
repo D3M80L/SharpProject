@@ -11,6 +11,9 @@ namespace TE001
     /// Demonstrates:
     /// - how background and foreground thread works.
     /// - how the finally block works in a background and foreground thread
+    /// 
+    /// Some discussion about threads.
+    /// Why Windows Threads are better than POSIX threads: http://software.intel.com/en-us/blogs/2006/10/19/why-windows-threads-are-better-than-posix-threads
     /// </summary>
     class Program
     {

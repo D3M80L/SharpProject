@@ -13,14 +13,18 @@ namespace TE012
             var example = new RawFieldsExample();
             //var example = new MemoryBarrierFieldsExample();
 
-            
             ThreadPool.QueueUserWorkItem(_ => example.Run());
             Thread.Sleep(500);
             example.Set();
-            Thread.Sleep(2000);
+            Console.WriteLine("Waiting for detonation...");
+            Console.ReadLine();
         }
     }
 
+
+    /// <summary>
+    /// This example shows how an optimization (IL, JIT) can work.
+    /// </summary>
     class RawFieldsExample // NOTE: compilation for x86 and x64 may be different
     {
         private /*volatile*/ bool flag = false;
@@ -31,10 +35,14 @@ namespace TE012
             Console.WriteLine("The bomb has been planted...");
         }
 
+        /// <summary>
+        /// Note the the message Boom will not be displayed.
+        /// You need to compile the program with optimizations enabled.
+        /// </summary>
         public void Run()
         {
             int sum = 0;
-            while (!flag) ++sum; // forever alone, until flag is volatile
+            while (!flag) ++sum; 
             Console.WriteLine("Boom {0}.", sum);
         }
     }
