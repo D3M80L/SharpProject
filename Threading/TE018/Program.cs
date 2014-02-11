@@ -19,6 +19,14 @@ namespace TE018
         static void Main(string[] args)
         {
             Console.WriteLine(GetText(@"D:\SomeFile.txt"));
+
+            RunAsync();
+        }
+
+        static void SomeOtherMethod()
+        {
+
+
         }
 
         private static async Task<string> GetText(string fileName)
@@ -32,6 +40,16 @@ namespace TE018
 
                 return result;
             }
+        }
+
+        private static async void RunAsync()
+        {
+            Console.WriteLine("RunAsync BEFORE");
+
+            await Task.Delay(1000);
+
+            Console.WriteLine("RunAsync AFTER");
+
         }
     }
 }

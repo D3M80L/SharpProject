@@ -61,6 +61,7 @@ namespace TE009
         static void AbortUnsafe()
         {
             // NOTE: take a look at the decompiled code of this block (opaque code)
+            // Thre CreateText is not safe, an exception may occur during the class is being created... 
             using (var stream = File.CreateText("some path"))
             {
 

@@ -23,6 +23,9 @@ namespace TE008
     }
 
 
+    /// <summary>
+    /// Note: the Synchronization works only on ContextBoundObjects
+    /// </summary>
     [Synchronization]
     public class AutoLock //: ContextBoundObject // NOTE: use context bound
     {

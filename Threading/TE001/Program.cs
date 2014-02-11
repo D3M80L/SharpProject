@@ -42,7 +42,8 @@ namespace TE001
             }
             finally
             {
-                Console.WriteLine("Cleaning background thread."); // NOTE: the finally block is not fired when the thread is a background thread
+                // NOTE: the finally block is not fired when the thread is a background thread and the process is terminated
+                Console.WriteLine("Cleaning background thread."); 
             }
         }
     }

@@ -63,7 +63,7 @@ namespace TE016
                 // the exception in the Task is rethrown and packed to an AggregateException
                 task.Wait();
             }
-            catch (AggregateException aggregateException)
+            catch (AggregateException)
             {
                 Console.WriteLine("Aggregate exception");
             }

@@ -25,6 +25,7 @@ namespace TE005b
     {
         public void Run()
         {
+            // Never, ever lock using 'this'.
             lock (this) 
             {
                 Console.WriteLine("ThreadID {0} owned the lock.", Thread.CurrentThread.ManagedThreadId);

@@ -55,6 +55,7 @@ namespace TE020
 
             // This can be good on GUI apps
             // http://stackoverflow.com/questions/13489065/best-practice-to-call-configureawait-for-all-server-side-code
+            // Synchronization Context - http://msdn.microsoft.com/en-us/magazine/gg598924.aspx
             //.ConfigureAwait(false); 
 
             return result;
