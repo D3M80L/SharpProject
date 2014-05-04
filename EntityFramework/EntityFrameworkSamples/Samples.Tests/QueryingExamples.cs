@@ -179,5 +179,51 @@ namespace Samples.Tests
             Assert.IsTrue(file.FileNotes.Count > 0);
             Assert.IsTrue(file.FileNotes.All(x=>x.IsDeleted == false));
         }
+
+        [Test]
+        public void GetAnyFile_TheStateShouldBeUnchanged()
+        {
+            // Arrange
+            var context = UnitOfWork.Context<SampleContext>();
+            var file = context.Files.First();
+
+            // Act
+            var state = context.Entry(file).State;
+
+            // Assert
+            Assert.AreEqual(EntityState.Unchanged, state);
+        }
+
+        /// <summary>
+        /// Check the SQL query generated for Single
+        /// </summary>
+        [Test]
+        public void GetAFile_UsingSingle()
+        {
+            // Arrange
+            var context = UnitOfWork.Context<SampleContext>();
+
+            // Act
+            var file = context.Files.Single(x=>x.Id == 1);
+
+            // Assert
+            Assert.IsNotNull(file);
+        }
+
+        /// <summary>
+        /// Check the SQL query generated for First
+        /// </summary>
+        [Test]
+        public void GetAFile_UsingFirst()
+        {
+            // Arrange
+            var context = UnitOfWork.Context<SampleContext>();
+
+            // Act
+            var file = context.Files.First(x => x.Id == 1);
+
+            // Assert
+            Assert.IsNotNull(file);
+        }
     }
 }

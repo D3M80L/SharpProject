@@ -49,9 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EdmxGeneration.cs" />
     <Compile Include="QueryingExamples.cs" />
     <Compile Include="CreateDatabaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlLoggingExamples.cs" />
     <Compile Include="TestsInfrastructure\DatabaseFill.cs" />
     <Compile Include="TestsInfrastructure\SampleContextDropAndCreateDatabase.cs" />
     <Compile Include="TestsInfrastructure\UnitOfWorkTestBase.cs" />
