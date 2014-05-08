@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,11 +34,22 @@ namespace Samples.Tests.TestsInfrastructure
 
             var files = new List<File>()
             {
-                new File() { CreatedUtc  = DateTime.UtcNow, Title = "Title 1", Number = 1, ModUser = users[0], Customers = new List<Customer>(new [] { customers[0], customers[1] })},
-                new File() { CreatedUtc  = DateTime.UtcNow, Title = "Title 2", Number = 2, ModUser = users[1], Customers = new List<Customer>(new [] { customers[2], customers[3] })},
-                new File() { CreatedUtc  = DateTime.UtcNow, Title = "Title 3", Number = 3, ModUser = users[2], Customers = new List<Customer>(new [] { customers[3] })},
-                new File() { CreatedUtc  = DateTime.UtcNow, Title = "Title 4", Number = 4, ModUser = users[3] },
-                new File() { CreatedUtc  = DateTime.UtcNow, Title = "Title 5", Number = 4, ModUser = users[3] },
+                new File { CreatedUtc  = DateTime.UtcNow, Title = "Title 1", Number = 1, ModUser = users[0], Customers = new List<Customer>(new [] { customers[0], customers[1] })},
+                new File { CreatedUtc  = DateTime.UtcNow, Title = "Title 2", Number = 2, ModUser = users[1], Customers = new List<Customer>(new [] { customers[2], customers[3] })},
+                new File { CreatedUtc  = DateTime.UtcNow, Title = "Title 3", Number = 3, ModUser = users[2], Customers = new List<Customer>(new [] { customers[3] })},
+                new File { CreatedUtc  = DateTime.UtcNow, Title = "Title 4", Number = 4, ModUser = users[3] },
+                new File
+                {
+                    CreatedUtc  = DateTime.UtcNow,
+                    Title = "Title 5",
+                    Number = 4,
+                    ModUser = users[3],
+                    FileNotes = new Collection<FileNote>
+                    {
+                        new FileNote { Note = "Some note", IsDeleted  = true },
+                        new FileNote { Note = "Some note" },
+                    }
+                },
             };
 
             var fileNotes = new List<FileNote>()

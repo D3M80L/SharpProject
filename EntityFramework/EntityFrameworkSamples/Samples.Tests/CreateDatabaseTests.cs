@@ -27,6 +27,7 @@ namespace Samples.Tests
             unitOfWork.Dispose();
         }
 
+        [Ignore]
         [Test]
         public void FillDatabase()
         {

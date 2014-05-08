@@ -18,6 +18,8 @@ namespace EntitySamples.DataModel
 
         public virtual User ModUser { get; set; }
 
+        public DateTime? FileDate { get; set; }
+
         public virtual ICollection<Customer> Customers { get; set; }
 
         public virtual ICollection<FileNote> FileNotes { get; set; }
