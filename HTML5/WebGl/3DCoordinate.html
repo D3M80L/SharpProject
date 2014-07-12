@@ -1,0 +1,102 @@
+<!DOCTYPE html/>
+<html>
+	<head>
+		<title>3D</title>
+	</head>
+	<body>
+		<svg width="400px" height="400px">
+			<pattern id="rulerPattern" patternUnits="userSpaceOnUse"
+				x="0" y="0" width="10" height="10"
+				viewBox="0 0 10 10" >
+				<line x1="0" y1="0" x2="10" y2="0" 
+					stroke="lightgray" fill="none" />
+				<line x1="0" y1="0" x2="0" y2="10" 
+					stroke="lightgray" fill="none"/>
+			</pattern>
+			<rect x="0" y="0" width="100%" height="100%"
+				fill="url(#rulerPattern)" stroke="black" />
+
+			<!-- SVG -->
+			<path
+				d="M 50 200 L350 200"
+				stroke="black"
+				stroke-width="1" />
+			<path
+				d="M 200 50 L200 350"
+				stroke="black"
+				stroke-width="1" />
+			<path
+				d="M 140 260 L260 140"
+				stroke="black"
+				stroke-width="1" />
+			 
+			<path name="z"
+				d="M200 200 L200 40 L150 250 z"
+				stroke="black"
+				stroke-width="1"
+				fill-opacity="0.5"
+				fill="red" />	
+			<path name="x"
+				d="M150 250 L360 200 L200 200 z"
+				stroke="black"
+				stroke-width="1"
+				fill-opacity="0.5"
+				fill="blue" />		
+			<path name="y"
+				d="M200 200 L360 200 L200 40 z"
+				stroke="black"
+				stroke-width="1"
+				fill-opacity="0.5"
+				fill="yellow" />		
+				
+			<path
+				d="M200 200 L140 260 L143 250 L146 255"
+				stroke="black"
+				stroke-width="3" />
+			<path
+				d="M 200 200 L370 200 L360 197 L360 203 L370 200"
+				stroke="black"
+				stroke-width="3" />
+			<path
+				d="M 200 200 L200 30 L197 40 L203 40 L200 30"
+				stroke="black"
+				stroke-width="3" />
+			
+			<text
+				x="15" 
+				y="204"
+				font-size="9"
+				font-family="verdana">X (-)
+			</text>
+			
+			<text
+				x="373" 
+				y="204"
+				font-size="9"
+				font-family="verdana">X (+)
+			</text>
+			
+			<text
+				x="190" 
+				y="25"
+				font-size="9"
+				font-family="verdana">Y (+)
+			</text>
+			
+			<text
+				x="190" 
+				y="360"
+				font-size="9"
+				font-family="verdana">Y (-)
+			</text>
+			
+			<text
+				x="125" 
+				y="270"
+				font-size="9"
+				font-family="verdana">Z (+)
+			</text>
+			
+		</svg>
+	</body>
+</html>
