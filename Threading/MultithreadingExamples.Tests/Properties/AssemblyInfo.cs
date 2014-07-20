@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TE004b")]
+[assembly: AssemblyTitle("MultithreadingExamples.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TE004b")]
+[assembly: AssemblyProduct("MultithreadingExamples.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("47256128-0a27-407d-899e-36d5599d17e1")]
+[assembly: Guid("f36dea30-d287-4fd4-9e7e-3a37ba81eac5")]
 
 // Version information for an assembly consists of the following four values:
 //
