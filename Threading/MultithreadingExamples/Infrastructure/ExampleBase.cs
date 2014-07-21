@@ -7,6 +7,7 @@ namespace MultithreadingExamples.Infrastructure
     {
         public const string Running = "Running";
         public const string Finished = "Finished";
+        public const string PressEnterToContinue = "PressEnterToContinue";
 
         public ILog Log { get; set; }
 

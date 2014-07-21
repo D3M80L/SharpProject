@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MultithreadingExamples.ConsoleApp.Infrastructure;
 using MultithreadingExamples.Examples.CooperativeCancellations;
 using MultithreadingExamples.Examples.ReadWrites;
+using MultithreadingExamples.Examples.Tasks;
 using MultithreadingExamples.Examples.Threads;
 using MultithreadingExamples.Infrastructure;
 
@@ -15,6 +16,14 @@ namespace MultithreadingExamples.ConsoleApp
     {
         private static readonly List<Func<ExampleBase>> Examples = new List<Func<ExampleBase>>
         {
+            Example<ValidTaskContinuationOptionsExample>,
+            Example<InvalidTaskContinuationOptionsExample>,
+            Example<TaskCancellation>,
+            Example<TaskContinuation>,
+            Example<WaitingForANotStartedTaskBlocks>,
+            Example<CatchExceptionFromTask>,
+            Example<ThrowExceptionInTask>,
+            Example<CreateTaskUsingFactory>,
             Example<ModifiedClosureFix>,
             Example<ModifiedClosureExample>,
             Example<ThreadAbortExceptionExample>,

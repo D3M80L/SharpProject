@@ -48,6 +48,16 @@
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
     <Compile Include="Examples\ReadWrites\SafeIncrement.cs" />
     <Compile Include="Examples\ReadWrites\UnsafeIncrement.cs" />
+    <Compile Include="Examples\Tasks\CatchExceptionFromTask.cs" />
+    <Compile Include="Examples\Tasks\CreateTaskUsingFactory.cs" />
+    <Compile Include="Examples\Tasks\InvalidTaskContinuationOptionsExample.cs" />
+    <Compile Include="Examples\Tasks\TaskCancellation.cs" />
+    <Compile Include="Examples\Tasks\TaskContinuation.cs" />
+    <Compile Include="Examples\Tasks\TaskContinuationOptionsBase.cs" />
+    <Compile Include="Examples\Tasks\TasksBase.cs" />
+    <Compile Include="Examples\Tasks\ThrowExceptionInTask.cs" />
+    <Compile Include="Examples\Tasks\ValidTaskContinuationOptionsExample.cs" />
+    <Compile Include="Examples\Tasks\WaitingForANotStartedTaskBlocks.cs" />
     <Compile Include="Examples\Threads\BackgroundThreadAndFinallyBlock.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStop.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExample.cs" />
