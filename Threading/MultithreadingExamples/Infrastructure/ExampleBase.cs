@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Infrastructure
@@ -8,6 +9,7 @@ namespace MultithreadingExamples.Infrastructure
         public const string Running = "Running";
         public const string Finished = "Finished";
         public const string PressEnterToContinue = "PressEnterToContinue";
+        public const string PressEnterToExit = "PressEnterToExit";
 
         public ILog Log { get; set; }
 
@@ -16,7 +18,9 @@ namespace MultithreadingExamples.Infrastructure
         public void Run()
         {
             Log.Info(Running);
+            LogDebugWhenCompiledDebug();
             OnRun();
+            ConfirmExit();
             Log.Info(Finished);
         }
 
@@ -41,6 +45,19 @@ namespace MultithreadingExamples.Infrastructure
         protected virtual void OnDispose()
         {
 
+        }
+
+        [Conditional("DEBUG")]
+        private void LogDebugWhenCompiledDebug()
+        {
+            Log.Info("DEBUG");
+        }
+
+
+        private void ConfirmExit()
+        {
+            Log.Info(PressEnterToExit);
+            ConsoleInput.ReadLine();
         }
     }
 }

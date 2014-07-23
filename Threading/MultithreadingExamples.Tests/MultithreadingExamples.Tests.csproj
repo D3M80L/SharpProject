@@ -33,6 +33,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,12 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Examples\CooperativeCancellations\UseIsCancellationRequestedTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
     <Compile Include="Infrastructure\ExampleTestBase.cs" />
+    <Compile Include="Infrastructure\IStateObserver.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
+    <Compile Include="Infrastructure\StateMachine.cs" />
+    <Compile Include="Infrastructure\StateMachineLoggerMock.cs" />
+    <Compile Include="Infrastructure\CatchStateObserver.cs" />
+    <Compile Include="Infrastructure\StateObservers\ExclusiveLockStateObserver.cs" />
+    <Compile Include="Infrastructure\StateObservers\LockingStateObserver.cs" />
+    <Compile Include="Infrastructure\StateObservers\OnlyDisplayStateObserver.cs" />
+    <Compile Include="Infrastructure\StateObservers\StateObserverBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Examples\CooperativeCancellations\" />
+    <Folder Include="Examples\ReadWrites\" />
     <Folder Include="Examples\Threads\" />
   </ItemGroup>
   <ItemGroup>

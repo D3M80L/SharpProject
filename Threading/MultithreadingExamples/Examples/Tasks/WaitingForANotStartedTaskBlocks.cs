@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Examples.Tasks
             var task = new Task(RunInTask);
 
             Log.Info("BeforeWait");
-            task.Wait();
+            task.Wait(); // Blocked
             Log.Info("AfterWait");
         }
 

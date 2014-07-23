@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MultithreadingExamples.ConsoleApp.Infrastructure;
 using MultithreadingExamples.Examples.CooperativeCancellations;
+using MultithreadingExamples.Examples.OptimizationSensibles;
 using MultithreadingExamples.Examples.ReadWrites;
 using MultithreadingExamples.Examples.Tasks;
 using MultithreadingExamples.Examples.Threads;
@@ -16,6 +17,8 @@ namespace MultithreadingExamples.ConsoleApp
     {
         private static readonly List<Func<ExampleBase>> Examples = new List<Func<ExampleBase>>
         {
+            //Example<OptimizationSensibleExample>,
+            Example<TimerGarbageCollectorSensible>,
             Example<ValidTaskContinuationOptionsExample>,
             Example<InvalidTaskContinuationOptionsExample>,
             Example<TaskCancellation>,

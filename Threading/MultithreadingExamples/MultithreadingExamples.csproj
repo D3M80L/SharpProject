@@ -45,6 +45,13 @@
     <Compile Include="Examples\CooperativeCancellations\RegisteringCallbackAfterTheTokenSourceHasBeenCancelled.cs" />
     <Compile Include="Examples\CooperativeCancellations\UseIsCancellationRequested.cs" />
     <Compile Include="Examples\CooperativeCancellations\UseThrowIfCancellationRequested.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithMemoryBarierExample.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileExample.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileReadWriteExample.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationOrderSensibleExample.cs" />
+    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensible.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleBase.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExample.cs" />
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
     <Compile Include="Examples\ReadWrites\SafeIncrement.cs" />
     <Compile Include="Examples\ReadWrites\UnsafeIncrement.cs" />

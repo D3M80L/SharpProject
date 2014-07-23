@@ -7,6 +7,7 @@ namespace MultithreadingExamples.ConsoleApp.Infrastructure
     {
         public string ReadLine()
         {
+            Console.Write("> ");
             return Console.ReadLine();
         }
     }
