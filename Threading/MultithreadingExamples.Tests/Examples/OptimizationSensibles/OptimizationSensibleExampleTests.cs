@@ -9,22 +9,70 @@ using Rhino.Mocks;
 namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
 {
     [TestFixture]
-    public sealed class OptimizationSensibleExampleTests : ExampleTestBase<OptimizationSensibleExample>
+    public sealed class OptimizationTests
     {
         [Test]
-        public void CountingNotFinishedInReleaseBuild()
+        public void OptimizationSensibleExample()
         {
-            // Arrange
-            var countingFinished = StateMachine.AddObserver(new CatchStateObserver(state => state == OptimizationSensibleExample.CountingFinished));
-
-            var confirmCountingStop = StateMachine.AddObserver(new ExclusiveLockStateObserver(state => state == OptimizationSensibleExample.ConfirmCountingStopMessage));
-
-            // Act
-            RunExampleInThread();
-            confirmCountingStop.Wait(5000, action: () => { });
-
-            // Assert
-            Assert.IsTrue(countingFinished.Wait(5000));
+            TestExample<OptimizationSensibleExample>();
         }
+
+        [Test]
+        public void BlockOptimizationWithVolatileReadWriteExample()
+        {
+            TestExample<BlockOptimizationWithVolatileReadWriteExample>();
+        }
+
+        [Test]
+        public void BlockOptimizationWithVolatileExample()
+        {
+            TestExample<BlockOptimizationWithVolatileExample>();
+        }
+
+        [Test]
+        public void BlockOptimizationWithMemoryBarierExample()
+        {
+            TestExample<BlockOptimizationWithMemoryBarierExample>();
+        }
+
+        private void TestExample<TExample>()
+            where TExample : OptimizationSensibleCounterExampleBase, new()
+        {
+            var example = new OptimizationSensibleCounterExample<TExample>();
+            example.TestSetup();
+
+            example.Arrange();
+
+            example.Act();
+
+            Assert.IsTrue(example.Assert());
+
+            example.TearDown();
+        }
+
+        private sealed class OptimizationSensibleCounterExample<TExample> : ExampleTestBase<TExample>
+            where TExample : OptimizationSensibleCounterExampleBase, new()
+        {
+            private CatchStateObserver _countingFinished;
+            private ExclusiveLockStateObserver _confirmCountingStop;
+
+            public void Arrange()
+            {
+                _countingFinished = StateMachine.AddObserver(new CatchStateObserver(state => state == OptimizationSensibleCounterExampleBase.CountingFinished));
+                _confirmCountingStop = StateMachine.AddObserver(new ExclusiveLockStateObserver(state => state == OptimizationSensibleCounterExampleBase.ConfirmCountingStopMessage));
+            }
+
+            public void Act()
+            {
+                RunExampleInThread();
+                _confirmCountingStop.Wait(5000, action: () => { });
+            }
+
+            public bool Assert()
+            {
+                return _countingFinished.Wait(5000);
+            }
+        }
+
     }
 }

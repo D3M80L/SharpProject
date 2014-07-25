@@ -4,30 +4,11 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.OptimizationSensibles
 {
-    public sealed class BlockOptimizationWithMemoryBarierExample : OptimizationSensibleBase, ISolutionFor<OptimizationSensibleExample>
+    public sealed class BlockOptimizationWithMemoryBarierExample : OptimizationSensibleCounterExampleBase, ISolutionFor<OptimizationSensibleExample>
     {
-        public const string ConfirmCountingStopMessage = "ConfirmCountingStop";
-        public const string FlagHasBeenSet = "FlagHasBeenSet";
-        public const string CountingFinished = "CountingFinished";
-
         private bool _stopCounting = false;
-        protected override void OnRun()
-        {
-            // NOTE: Run this example in debug and later in release
-            ThreadPool.QueueUserWorkItem(_ => Count());
 
-            ConfirmCountingStop();
-
-            StopCounting();
-        }
-
-        private void ConfirmCountingStop()
-        {
-            Log.Info(ConfirmCountingStopMessage);
-            ConsoleInput.ReadLine();
-        }
-
-        private void StopCounting()
+        protected override void StopCounting()
         {
             Thread.MemoryBarrier();
             _stopCounting = true;
@@ -36,7 +17,7 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
             Log.Info(FlagHasBeenSet);
         }
 
-        private void Count()
+        protected override void Count()
         {
             byte count = 0;
             Thread.MemoryBarrier();
