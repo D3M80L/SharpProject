@@ -14,7 +14,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
         protected ILog Log { get; private set; }
 
-        protected IConsoleInput ConsoleInput { get; private set; }
+        protected IInteraction Interaction { get; private set; }
 
         protected StateMachine StateMachine { get; private set; }
 
@@ -28,20 +28,20 @@ namespace MultithreadingExamples.Tests.Infrastructure
             StateMachine.AddObserver(new LockingStateObserver(x => x == ExampleBase.PressEnterToExit));
 
             Log          = new StateMachineLoggerMock(StateMachine);
-            ConsoleInput = MockRepository.GenerateStub<IConsoleInput>();
-            ConsoleInput
-                .Stub(x => x.ReadLine())
+            Interaction = MockRepository.GenerateStub<IInteraction>();
+            Interaction
+                .Stub(x => x.Confirmation())
                 .Return(Environment.NewLine);
 
             Example.Log = Log;
-            Example.ConsoleInput = ConsoleInput;
+            Example.Interaction = Interaction;
         }
 
         [TearDown]
         public void TearDown()
         {
             Log = null;
-            ConsoleInput = null;
+            Interaction = null;
             Example.Dispose();
         }
 

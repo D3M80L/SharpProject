@@ -3,12 +3,12 @@ using MultithreadingExamples.Infrastructure;
 
 namespace MultithreadingExamples.ConsoleApp.Infrastructure
 {
-    internal sealed class ConsoleInput : IConsoleInput
+    internal sealed class Interaction : IInteraction
     {
-        public string ReadLine()
+        public void Confirmation()
         {
             Console.Write("> ");
-            return Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }

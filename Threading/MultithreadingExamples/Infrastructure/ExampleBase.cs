@@ -13,7 +13,7 @@ namespace MultithreadingExamples.Infrastructure
 
         public ILog Log { get; set; }
 
-        public IConsoleInput ConsoleInput { get; set; }
+        public IInteraction Interaction { get; set; }
 
         public void Run()
         {
@@ -57,7 +57,7 @@ namespace MultithreadingExamples.Infrastructure
         private void ConfirmExit()
         {
             Log.Info(PressEnterToExit);
-            ConsoleInput.ReadLine();
+            Interaction.Confirmation();
         }
     }
 }

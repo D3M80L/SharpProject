@@ -47,7 +47,7 @@ namespace MultithreadingExamples.ConsoleApp
         {
             var example = Examples.First()();
             example.Log = new Logger();
-            example.ConsoleInput = new ConsoleInput();
+            example.Interaction = new Interaction();
 
             example.Run();
 

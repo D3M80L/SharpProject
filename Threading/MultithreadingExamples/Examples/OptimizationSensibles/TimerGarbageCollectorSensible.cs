@@ -28,14 +28,14 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
         private void ConfirmExit()
         {
             Log.Info(PressEnterToContinue);
-            ConsoleInput.ReadLine();
+            Interaction.Confirmation();
         }
 
         private void PerformGarbageCollection()
         {
             Log.Info("Going to make GC.Collect");
             Log.Info(PressEnterToContinue);
-            ConsoleInput.ReadLine();
+            Interaction.Confirmation();
 
             GC.Collect(); // here we are forcing the GC to make a garbage collect
             Log.Info(GcCollect);

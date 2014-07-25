@@ -13,7 +13,7 @@ namespace MultithreadingExamples.Examples.Tasks
             BuildTask();
 
             Log.Info(PressEnterToContinue);
-            ConsoleInput.ReadLine();
+            Interaction.Confirmation();
         }
 
         protected abstract void BuildTask();

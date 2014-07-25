@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Examples.Tasks
             Task.Run(() => RunInTask());
 
             Log.Info(PressEnterToContinue);
-            ConsoleInput.ReadLine();
+            Interaction.Confirmation();
         }
 
         private void RunInTask()

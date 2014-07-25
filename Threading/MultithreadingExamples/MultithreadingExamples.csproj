@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExamplesGenerator.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallback.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingException.cs" />
     <Compile Include="Examples\CooperativeCancellations\CooperativeCancellationBase.cs" />
@@ -74,11 +75,12 @@
     <Compile Include="Examples\Threads\ThreadExampleBase.cs" />
     <Compile Include="Examples\Threads\ThreadInterrupdedExceptionExample.cs" />
     <Compile Include="Examples\Threads\UnhandledExceptionInThread.cs" />
+    <Compile Include="IExampleGenerator.cs" />
     <Compile Include="Infrastructure\ExampleBase.cs" />
     <Compile Include="Infrastructure\Exceptions\VeryImportantException.cs" />
     <Compile Include="Infrastructure\Extensions\LogExtensions.cs" />
     <Compile Include="Infrastructure\IExample.cs" />
-    <Compile Include="Infrastructure\IConsoleInput.cs" />
+    <Compile Include="Infrastructure\IInteraction.cs" />
     <Compile Include="Infrastructure\IHasSolutionIn.cs" />
     <Compile Include="Infrastructure\IImportantExample.cs" />
     <Compile Include="Infrastructure\ILog.cs" />

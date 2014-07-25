@@ -1,7 +1,7 @@
 ﻿namespace MultithreadingExamples.Infrastructure
 {
-    public interface IConsoleInput
+    public interface IInteraction
     {
-        string ReadLine();
+        void Confirmation();
     }
 }
