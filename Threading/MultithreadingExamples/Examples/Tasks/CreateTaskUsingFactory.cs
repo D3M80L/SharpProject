@@ -13,7 +13,7 @@ namespace MultithreadingExamples.Examples.Tasks
             Task.Run(() => RunInTask());
 
             Log.Info(PressEnterToContinue);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
         }
 
         private void RunInTask()

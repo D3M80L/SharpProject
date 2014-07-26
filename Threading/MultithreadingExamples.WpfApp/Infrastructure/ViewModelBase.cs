@@ -45,7 +45,7 @@ namespace MultithreadingExamples.WpfApp.Infrastructure
             var handler = PropertyChanged;
             if (handler != null)
             {
-                handler(this, new PropertyChangedEventArgs(propertyName));
+                UiDispatcher.RunAsyncInUi(()=> handler(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
 

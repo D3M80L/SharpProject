@@ -15,7 +15,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             ThreadPool.QueueUserWorkItem(x => Process(cancellationTokenSource.Token));
 
             Log.Info("WaitingForCancellation");
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
 
             try
             {
@@ -33,7 +33,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             }
 
             Log.Info("WaitingForConfirmation");
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
         }
 
         private void Process(CancellationToken cancellationToken)

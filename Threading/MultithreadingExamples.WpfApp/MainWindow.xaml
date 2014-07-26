@@ -60,7 +60,7 @@
 
                 <Button 
                     Grid.Row="2"
-                    Command="{Binding RunExampleCommand}" 
+                    Command="{Binding ConfirmationCommand}" 
                     Content="Confirm" />
                 
                 <ListBox

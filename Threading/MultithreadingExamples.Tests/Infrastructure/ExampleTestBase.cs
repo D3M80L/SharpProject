@@ -30,8 +30,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
             Log          = new StateMachineLoggerMock(StateMachine);
             Interaction = MockRepository.GenerateStub<IInteraction>();
             Interaction
-                .Stub(x => x.Confirmation())
-                .Return(Environment.NewLine);
+                .Stub(x => x.ConfirmationRequest());
 
             Example.Log = Log;
             Example.Interaction = Interaction;

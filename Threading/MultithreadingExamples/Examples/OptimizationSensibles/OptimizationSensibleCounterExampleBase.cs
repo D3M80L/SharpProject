@@ -22,7 +22,7 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
         protected void ConfirmCountingStop()
         {
             Log.Info(ConfirmCountingStopMessage);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
         }
 
         protected abstract void StopCounting();

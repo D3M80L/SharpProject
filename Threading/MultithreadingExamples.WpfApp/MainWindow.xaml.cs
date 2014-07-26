@@ -26,6 +26,8 @@ namespace MultithreadingExamples.WpfApp
 
         public MainWindow()
         {
+            UiDispatcher.SetDispatcher(Dispatcher);
+
             _viewModel = new ExamplesBoardViewModel();
             InitializeComponent();
             DataContext = _viewModel;

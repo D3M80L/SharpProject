@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,11 +86,17 @@
     <Compile Include="Infrastructure\IImportantExample.cs" />
     <Compile Include="Infrastructure\ILog.cs" />
     <Compile Include="Infrastructure\ISolutionFor.cs" />
+    <Compile Include="Examples\Patterns\DoubleCheckedLazyExample.cs" />
+    <Compile Include="Examples\Patterns\Singleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadingModels\LockingExample.cs" />
+    <Compile Include="ThreadingModels\SolutionForLockingExample.cs" />
+    <Compile Include="ThreadingModels\ThreadingModelsBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Examples\Threads\readme.md" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

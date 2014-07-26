@@ -16,7 +16,7 @@ namespace MultithreadingExamples.WpfApp.ViewModels
     public sealed class ExamplesBoardViewModel : ViewModelBase
     {
         private readonly IExampleGenerator _exampleGenerator;
-        private ExampleExecutionContext _example;
+        private ExamplesExecutionContext _examplesExecutionContext;
 
         public ICollectionView ExamplesView
         {
@@ -31,9 +31,9 @@ namespace MultithreadingExamples.WpfApp.ViewModels
 
         public DelegateCommand RunExampleCommand { get; private set; }
 
-        private ExampleItem _selectedExample;
-        
+        public DelegateCommand ConfirmationCommand { get; private set; }
 
+        private ExampleItem _selectedExample;
         public ExampleItem SelectedExample
         {
             get { return _selectedExample; }
@@ -67,6 +67,7 @@ namespace MultithreadingExamples.WpfApp.ViewModels
 
             Messages = new ObservableCollection<string>();
             RunExampleCommand = new DelegateCommand(RunExample, CanRunExample);
+            ConfirmationCommand = new DelegateCommand(Confirmation, CanConfirmation);
         }
 
         protected override void OnLoaded()
@@ -107,14 +108,47 @@ namespace MultithreadingExamples.WpfApp.ViewModels
         {
             IsBusy = true;
             NotifyCommandsChange();
+            if (_examplesExecutionContext != null)
+            {
+                _examplesExecutionContext.Dispose();
+            }
+
             var exampleInstance = _exampleGenerator.BuildExample(SelectedExample.ExampleDefinitionType);
-            _example = new ExampleExecutionContext(exampleInstance);
-            _example.Run();
+            _examplesExecutionContext = new ExamplesExecutionContext(exampleInstance, LogHandler, ConfirmationRequestHandler);
+            _examplesExecutionContext.Run();
+        }
+
+        public bool IsConfirmationRequested { get; private set; }
+        private bool CanConfirmation()
+        {
+            return IsConfirmationRequested;
+        }
+
+        private void Confirmation()
+        {
+            IsConfirmationRequested = false;
+            NotifyCommandsChange();
+            _examplesExecutionContext.Confirm();
+        }
+
+        private void LogHandler(string message)
+        {
+            UiDispatcher.RunAsyncInUi(()=> Messages.Add(message));
+        }
+
+        private void ConfirmationRequestHandler()
+        {
+            IsConfirmationRequested = true;
+            NotifyCommandsChange();
         }
 
         private void NotifyCommandsChange()
         {
-            RunExampleCommand.NotifyCanExecuteChanged();
+            UiDispatcher.RunAsyncInUi(()=>
+            {
+                RunExampleCommand.NotifyCanExecuteChanged();
+                ConfirmationCommand.NotifyCanExecuteChanged();
+            });
         }
     }
 }

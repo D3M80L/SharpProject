@@ -2,6 +2,6 @@
 {
     public interface IInteraction
     {
-        void Confirmation();
+        void ConfirmationRequest();
     }
 }

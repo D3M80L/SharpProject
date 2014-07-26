@@ -54,8 +54,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Infrastructure\DelegateCommand.cs" />
-    <Compile Include="Infrastructure\ExampleExecutionContext.cs" />
+    <Compile Include="Infrastructure\ExamplesExecutionContext.cs" />
     <Compile Include="Infrastructure\IViewModel.cs" />
+    <Compile Include="Infrastructure\UiDispatcher.cs" />
     <Compile Include="Infrastructure\ViewModelBase.cs" />
     <Compile Include="Models\ExampleItem.cs" />
     <Compile Include="ViewModels\ExamplesBoardViewModel.cs" />

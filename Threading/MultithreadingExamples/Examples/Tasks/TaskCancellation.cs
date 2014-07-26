@@ -18,13 +18,13 @@ namespace MultithreadingExamples.Examples.Tasks
             CancelTask(cancellationTokenSource);
 
             Log.Info(PressEnterToContinue);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
         }
 
         private void CancelTask(CancellationTokenSource cancellationTokenSource)
         {
             Log.Info(PressEnterToContinue);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
             Log.Info("Cancelling");
 
             cancellationTokenSource.Cancel();

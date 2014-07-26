@@ -5,7 +5,7 @@ namespace MultithreadingExamples.ConsoleApp.Infrastructure
 {
     internal sealed class Interaction : IInteraction
     {
-        public void Confirmation()
+        public void ConfirmationRequest()
         {
             Console.Write("> ");
             Console.ReadLine();

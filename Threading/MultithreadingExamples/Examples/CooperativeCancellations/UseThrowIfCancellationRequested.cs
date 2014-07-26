@@ -14,12 +14,12 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             ThreadPool.QueueUserWorkItem(x => Process(cancellationTokenSource.Token));
 
             Log.Info(WaitingForCancellation);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
 
             cancellationTokenSource.Cancel();
 
             Log.Info(WaitingForConfirmation);
-            Interaction.Confirmation();
+            Interaction.ConfirmationRequest();
         }
 
         private void Process(CancellationToken cancellationToken)
