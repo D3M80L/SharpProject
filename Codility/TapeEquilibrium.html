@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function solution(A) {
+            // write your code in JavaScript (ECMA-262, 5th edition)
+
+            var N = A.length;
+
+            var leftSum = A[0];
+            var rightSum = A[1];
+
+            for (var P = 2; P < N; P++) {
+                rightSum += A[P];
+            }
+
+            var diff = Math.abs(leftSum - rightSum);
+
+            for (P = 2; P < N; P++) {
+                var p = A[P-1];
+                leftSum += p;
+                rightSum -= p;
+
+                var diffCandidate = Math.abs(leftSum - rightSum);
+                if (diffCandidate < diff) {
+                    diff = diffCandidate;
+                }
+            }
+
+
+            return diff;
+        }
+
+        function runExample() {
+            console.log(solution([3, 1, 2, 4, 3]));
+            console.log(solution([1000, -1000]));
+        }
+
+        runExample();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
