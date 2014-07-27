@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace MultithreadingExamples.Tests.Examples.ThreadingModels
 {
     [TestFixture]
-    public sealed class CausesLockExampleTest : ExampleTestBase<LockingExample>
+    public sealed class LockingExampleTests : ExampleTestBase<LockingExample>
     {
         [Test]
         public void BlockOnWpfOnly()

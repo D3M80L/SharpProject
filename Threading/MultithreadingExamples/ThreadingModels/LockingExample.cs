@@ -1,11 +1,12 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using MultithreadingExamples.Examples.AsyncAwaits;
 using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.ThreadingModels
 {
-    public sealed class LockingExample : ThreadingModelsBase, IHasSolutionIn<SolutionForLockingExample>
+    public sealed class LockingExample : ThreadingModelsBase, IHasSolutionIn<SolutionForLockingExample>, IRelatedWith<AsyncVoidCrashingExample>
     {
         public const string Response = "Response";
 

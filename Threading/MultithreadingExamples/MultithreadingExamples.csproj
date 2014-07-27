@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExamplesGenerator.cs" />
+    <Compile Include="Examples\AsyncAwaits\AsynAwaitExampleBase.cs" />
+    <Compile Include="Examples\AsyncAwaits\AsyncVoidCrashingExample.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallback.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingException.cs" />
     <Compile Include="Examples\CooperativeCancellations\CooperativeCancellationBase.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Infrastructure\IHasSolutionIn.cs" />
     <Compile Include="Infrastructure\IImportantExample.cs" />
     <Compile Include="Infrastructure\ILog.cs" />
+    <Compile Include="Infrastructure\IRelatedWith.cs" />
     <Compile Include="Infrastructure\ISolutionFor.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyExample.cs" />
     <Compile Include="Examples\Patterns\Singleton.cs" />
