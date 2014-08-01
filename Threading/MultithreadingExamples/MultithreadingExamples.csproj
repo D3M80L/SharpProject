@@ -70,6 +70,10 @@
     <Compile Include="Examples\Tasks\ThrowExceptionInTask.cs" />
     <Compile Include="Examples\Tasks\ValidTaskContinuationOptionsExample.cs" />
     <Compile Include="Examples\Tasks\WaitingForANotStartedTaskBlocks.cs" />
+    <Compile Include="Examples\ThreadLocals\SharedStaticRandomInstanceExample.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadLocalRandomInstanceExample.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadLocalsExampleBase.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadStaticRandomInstanceExample.cs" />
     <Compile Include="Examples\Threads\BackgroundThreadAndFinallyBlock.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStop.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExample.cs" />

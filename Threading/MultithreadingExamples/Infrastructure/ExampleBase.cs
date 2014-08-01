@@ -57,7 +57,10 @@ namespace MultithreadingExamples.Infrastructure
         private void ConfirmExit()
         {
             Log.Info(PressEnterToExit);
-            Interaction.ConfirmationRequest();
+            if (Interaction != null)
+            {
+                Interaction.ConfirmationRequest();
+            }
         }
     }
 }

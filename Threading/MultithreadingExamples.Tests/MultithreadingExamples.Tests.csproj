@@ -50,6 +50,7 @@
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
     <Compile Include="Infrastructure\ExampleTestBase.cs" />
     <Compile Include="Infrastructure\IStateObserver.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
