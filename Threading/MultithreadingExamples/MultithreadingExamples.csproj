@@ -60,6 +60,9 @@
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
     <Compile Include="Examples\ReadWrites\SafeIncrement.cs" />
     <Compile Include="Examples\ReadWrites\UnsafeIncrement.cs" />
+    <Compile Include="Examples\Signaling\ManualResetEventSlimExample.cs" />
+    <Compile Include="Examples\Signaling\ManualResetEventExample.cs" />
+    <Compile Include="Examples\Signaling\ResetEventExampleBase.cs" />
     <Compile Include="Examples\Tasks\CatchExceptionFromTask.cs" />
     <Compile Include="Examples\Tasks\CreateTaskUsingFactory.cs" />
     <Compile Include="Examples\Tasks\InvalidTaskContinuationOptionsExample.cs" />

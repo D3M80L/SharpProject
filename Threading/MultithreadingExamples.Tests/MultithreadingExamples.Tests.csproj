@@ -49,6 +49,8 @@
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
+    <Compile Include="Examples\Signaling\ManualResetEventExampleTests.cs" />
+    <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
     <Compile Include="Infrastructure\ExampleTestBase.cs" />
