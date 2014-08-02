@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Examples\AsyncAwaits\AsyncVoidExampleTests.cs" />
+    <Compile Include="Examples\Collections\BlockingCollectionExampleTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
+    <Compile Include="Examples\Threads\AsyncCallbacksExampleTests.cs" />
     <Compile Include="Infrastructure\ExampleTestBase.cs" />
     <Compile Include="Infrastructure\IStateObserver.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
@@ -68,7 +70,6 @@
   <ItemGroup>
     <Folder Include="Examples\CooperativeCancellations\" />
     <Folder Include="Examples\ReadWrites\" />
-    <Folder Include="Examples\Threads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

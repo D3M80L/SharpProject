@@ -27,7 +27,7 @@ namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
 
             var timerMessageState = new CatchStateObserver(state => state == TimerGarbageCollectorSensible.TimerMessage);
             
-            gcCollectState
+            var gcCollected = gcCollectState
                 .Wait(5000, action: () =>
                 {
                     StateMachine.AddObserver(new LockingStateObserver(x => x == ExampleBase.PressEnterToContinue));
@@ -38,6 +38,7 @@ namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
                 });
 
             // Assert
+            Assert.IsTrue(gcCollected);
             Assert.IsTrue(timerMessageState.Wait(5000));
         }
     }

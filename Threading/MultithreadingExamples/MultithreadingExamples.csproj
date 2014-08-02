@@ -43,6 +43,9 @@
     <Compile Include="ExamplesGenerator.cs" />
     <Compile Include="Examples\AsyncAwaits\AsynAwaitExampleBase.cs" />
     <Compile Include="Examples\AsyncAwaits\AsyncVoidCrashingExample.cs" />
+    <Compile Include="Examples\Collections\BlockingCollectionExample.cs" />
+    <Compile Include="Examples\Collections\CollectionsExampleBase.cs" />
+    <Compile Include="Examples\Collections\ConcurrentBagExample.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallback.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingException.cs" />
     <Compile Include="Examples\CooperativeCancellations\CooperativeCancellationBase.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Examples\ThreadLocals\ThreadLocalRandomInstanceExample.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadLocalsExampleBase.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadStaticRandomInstanceExample.cs" />
+    <Compile Include="Examples\Threads\AsyncCallbacksExample.cs" />
     <Compile Include="Examples\Threads\BackgroundThreadAndFinallyBlock.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStop.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExample.cs" />
@@ -106,7 +110,9 @@
   <ItemGroup>
     <None Include="Examples\Threads\readme.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Algorithms\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,6 +10,7 @@ namespace MultithreadingExamples.Infrastructure
         public const string Finished = "Finished";
         public const string PressEnterToContinue = "PressEnterToContinue";
         public const string PressEnterToExit = "PressEnterToExit";
+        public const string ImportantException = "ImportantException";
 
         public ILog Log { get; set; }
 

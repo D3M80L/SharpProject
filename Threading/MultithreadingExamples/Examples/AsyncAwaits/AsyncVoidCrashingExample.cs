@@ -6,6 +6,13 @@ using MultithreadingExamples.ThreadingModels;
 
 namespace MultithreadingExamples.Examples.AsyncAwaits
 {
+    /// <summary>
+    /// This is only for demo. Take a look at decompiled code (with show compiler-generated code option enabled).
+    /// IAsyncStateMachine - http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.iasyncstatemachine(v=vs.110).aspx
+    /// 
+    /// For details about async/await:
+    /// - http://msdn.microsoft.com/en-us/library/hh156513.aspx
+    /// </summary>
     public sealed class AsyncVoidCrashingExample : AsynAwaitExampleBase, IImportantExample, IRelatedWith<LockingExample>
     {
         public const string VeryImportantException = "VeryImportantException";

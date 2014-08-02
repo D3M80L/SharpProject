@@ -30,5 +30,10 @@ namespace MultithreadingExamples.Tests.Infrastructure
         {
             return _resetEvent.WaitOne(timeout);
         }
+
+        public bool Wait()
+        {
+            return _resetEvent.WaitOne();
+        }
     }
 }
