@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ExamplesGenerator.cs" />
     <Compile Include="Examples\AsyncAwaits\AsynAwaitExampleBase.cs" />
+    <Compile Include="Examples\AsyncAwaits\AsyncTaskExample.cs" />
     <Compile Include="Examples\AsyncAwaits\AsyncVoidCrashingExample.cs" />
     <Compile Include="Examples\Collections\BlockingCollectionExample.cs" />
     <Compile Include="Examples\Collections\CollectionsExampleBase.cs" />

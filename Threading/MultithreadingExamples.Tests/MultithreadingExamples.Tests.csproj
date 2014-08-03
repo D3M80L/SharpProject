@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\AsyncAwaits\AsyncTaskExampleTests.cs" />
     <Compile Include="Examples\AsyncAwaits\AsyncVoidExampleTests.cs" />
     <Compile Include="Examples\Collections\BlockingCollectionExampleTests.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackExamplesTests.cs" />

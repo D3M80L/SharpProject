@@ -1,8 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MultithreadingExamples.Examples.AsyncAwaits;
 using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Tests.Infrastructure;
@@ -11,10 +6,10 @@ using NUnit.Framework;
 namespace MultithreadingExamples.Tests.Examples.AsyncAwaits
 {
     [TestFixture]
-    public sealed class AsyncVoidExampleTests : ExampleTestBase<AsyncVoidCrashingExample>
+    public sealed class AsyncTaskExampleTests : ExampleTestBase<AsyncTaskExample>
     {
         [Test]
-        public void CrashesTheApplication()
+        public void ExceptionThrownButStoredInTask()
         {
             // Arrange
             var waitForException = new CatchStateObserver(x => x == ExampleBase.ImportantException);
@@ -25,7 +20,6 @@ namespace MultithreadingExamples.Tests.Examples.AsyncAwaits
 
             // Assert
             Assert.IsFalse(waitForException.Wait(5000));
-
         }
     }
 }

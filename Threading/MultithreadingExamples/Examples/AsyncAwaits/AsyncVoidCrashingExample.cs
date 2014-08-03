@@ -13,10 +13,8 @@ namespace MultithreadingExamples.Examples.AsyncAwaits
     /// For details about async/await:
     /// - http://msdn.microsoft.com/en-us/library/hh156513.aspx
     /// </summary>
-    public sealed class AsyncVoidCrashingExample : AsynAwaitExampleBase, IImportantExample, IRelatedWith<LockingExample>
+    public sealed class AsyncVoidCrashingExample : AsynAwaitExampleBase, IImportantExample, IRelatedWith<LockingExample>, IHasSolutionIn<AsyncTaskExample>
     {
-        public const string VeryImportantException = "VeryImportantException";
-
         protected override void OnRun()
         {
             try
@@ -25,7 +23,7 @@ namespace MultithreadingExamples.Examples.AsyncAwaits
             }
             catch (VeryImportantException)
             {
-                Log.Info(VeryImportantException);
+                Log.Info(ImportantException); // Is never caught
             }
         }
 
