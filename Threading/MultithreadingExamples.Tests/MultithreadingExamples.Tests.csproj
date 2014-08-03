@@ -54,6 +54,10 @@
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExampleTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />
+    <Compile Include="Examples\Tasks\CatchExceptionFromTaskExampleTests.cs" />
+    <Compile Include="Examples\Tasks\TaskContinuationExampleTests.cs" />
+    <Compile Include="Examples\Tasks\ValidTaskContinuationOptionsExampleTests.cs" />
+    <Compile Include="Examples\Tasks\WaitingForANotStartedTaskBlocksExampleTests.cs" />
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
     <Compile Include="Examples\Threads\AsyncCallbacksExampleTests.cs" />

@@ -5,7 +5,7 @@ using MultithreadingExamples.Infrastructure;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public abstract class TasksBase : ExampleBase
+    public abstract class TasksExampleBase : ExampleBase
     {
         public const string InTask = "InTask";
         public const string ThreadId = "ThreadId={0}";

@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public sealed class InvalidTaskContinuationOptionsExample : TaskContinuationOptionsBase, IImportantExample, IHasSolutionIn<ValidTaskContinuationOptionsExample>
+    public sealed class InvalidTaskContinuationOptionsExample : TaskContinuationOptionsExampleBase, IImportantExample, IHasSolutionIn<ValidTaskContinuationOptionsExample>
     {
         protected override void BuildTask()
         {

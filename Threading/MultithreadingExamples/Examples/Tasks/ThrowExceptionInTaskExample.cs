@@ -1,15 +1,13 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using MultithreadingExamples.Infrastructure.Exceptions;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public sealed class CreateTaskUsingFactory : TasksBase
+    public sealed class ThrowExceptionInTaskExample : TasksExampleBase
     {
         protected override void OnRun()
         {
-            Log.Info("ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
-
             Task.Run(() => RunInTask());
 
             Log.Info(PressEnterToContinue);
@@ -18,7 +16,9 @@ namespace MultithreadingExamples.Examples.Tasks
 
         private void RunInTask()
         {
-            Log.Info(InTask + "#ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Log.Info(InTask);
+            // If you run this method in pure Thread or ThreadPool, the application crashes
+            throw new VeryImportantException();
         }
     }
 }

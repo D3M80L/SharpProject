@@ -5,7 +5,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public sealed class CatchExceptionFromTask : TasksBase
+    public sealed class CatchExceptionFromTaskExample : TasksExampleBase
     {
         protected override void OnRun()
         {
@@ -15,9 +15,13 @@ namespace MultithreadingExamples.Examples.Tasks
             {
                 task.Wait();
             }
+            catch (VeryImportantException)
+            {
+                Log.Info(ImportantException); // Not catched
+            }
             catch (AggregateException)
             {
-                Log.Info("AggregateException");
+                Log.Info(AggregateExceptionMessage);
             }
         }
 

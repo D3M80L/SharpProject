@@ -4,16 +4,17 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public abstract class TaskContinuationOptionsBase : TasksBase
+    public abstract class TaskContinuationOptionsExampleBase : TasksExampleBase
     {
+        public const string OnFaultedMessage = "OnFaulted";
+        public const string OnCancelledMessage = "OnCancelled";
+        public const string OnFinishedMessage = "OnFinished";
+
         protected override void OnRun()
         {
             Log.Info("Main ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
 
             BuildTask();
-
-            Log.Info(PressEnterToContinue);
-                Interaction.ConfirmationRequest();
         }
 
         protected abstract void BuildTask();
@@ -27,24 +28,24 @@ namespace MultithreadingExamples.Examples.Tasks
             }
             catch (VeryImportantException)
             {
-                Log.Info("VeryImportantException");
+                Log.Info(ImportantException);
                 throw;
             }
         }
 
         protected void OnCancelled()
         {
-            Log.Info("{0} ThreadId={1}", "OnCancelled", Thread.CurrentThread.ManagedThreadId);
+            Log.Info("{0} ThreadId={1}", OnCancelledMessage, Thread.CurrentThread.ManagedThreadId);
         }
 
         protected void OnFaulted()
         {
-            Log.Info("{0} ThreadId={1}", "OnFaulted", Thread.CurrentThread.ManagedThreadId);
+            Log.Info("{0} ThreadId={1}", OnFaultedMessage, Thread.CurrentThread.ManagedThreadId);
         }
 
         protected void OnFinished()
         {
-            Log.Info("{0} ThreadId={1}", "OnFinished", Thread.CurrentThread.ManagedThreadId);
+            Log.Info("{0} ThreadId={1}", OnFinishedMessage, Thread.CurrentThread.ManagedThreadId);
         }
 
     }

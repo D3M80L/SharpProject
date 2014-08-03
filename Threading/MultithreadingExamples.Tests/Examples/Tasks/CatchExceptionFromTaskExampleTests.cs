@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MultithreadingExamples.Examples.Tasks;
+using MultithreadingExamples.Infrastructure;
+using MultithreadingExamples.Tests.Infrastructure;
+using NUnit.Framework;
+
+namespace MultithreadingExamples.Tests.Examples.Tasks
+{
+    [TestFixture]
+    public sealed class CatchExceptionFromTaskExampleTests : ExampleTestBase<CatchExceptionFromTaskExample>
+    {
+        [Test]
+        public void AnyExceptionFromTaskIsRethrownInAggregateException()
+        {
+            // Arrange
+            var aggregateExceptionState = new CatchStateObserver(x=>x == ExampleBase.AggregateExceptionMessage);
+            StateMachine.AddObserver(aggregateExceptionState);
+
+            // Act
+            RunExampleInThread();
+            WaitForExitConfirmation(1000);
+
+            // Asert
+            Assert.AreEqual(1, aggregateExceptionState.Count);
+        }
+    }
+}

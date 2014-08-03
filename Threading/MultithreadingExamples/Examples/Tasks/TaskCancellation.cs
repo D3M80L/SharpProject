@@ -4,11 +4,10 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Tasks
 {
-    public sealed class TaskCancellation : TasksBase
+    public sealed class TaskCancellation : TasksExampleBase
     {
         protected override void OnRun()
         {
-            Log.Info("Main ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
             var cancellationTokenSource = new CancellationTokenSource();
 
             Task
