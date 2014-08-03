@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
-    public sealed class UseIsCancellationRequested : CooperativeCancellationBase
+    public sealed class UseThrowIfCancellationRequestedExample : CooperativeCancellationExampleBase
     {
         protected override void OnRun()
         {
@@ -28,15 +24,18 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 
         private void Process(CancellationToken cancellationToken)
         {
-            while (true)
+            try
             {
-                if (cancellationToken.IsCancellationRequested)
+                while (true)
                 {
-                    Log.Info(Cancelled);
-                    return;
-                }
+                    cancellationToken.ThrowIfCancellationRequested();
 
-                SendMessage();
+                    SendMessage();
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                Log.Info(Cancelled);
             }
         }
     }

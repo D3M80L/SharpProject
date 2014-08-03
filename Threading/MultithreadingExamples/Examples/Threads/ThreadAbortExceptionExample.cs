@@ -5,7 +5,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class ThreadAbortExceptionExample : ThreadExampleBase, IImportantExample, IHasSolutionIn<CooperativeCancellationBase>
+    public sealed class ThreadAbortExceptionExample : ThreadExampleBase, IImportantExample, IHasSolutionIn<CooperativeCancellationExampleBase>
     {
         public const string ThreadAbortExceptionMessage = "ThreadAbortExceptionMessage";
 

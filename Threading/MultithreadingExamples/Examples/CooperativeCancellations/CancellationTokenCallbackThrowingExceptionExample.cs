@@ -6,8 +6,12 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
-    public sealed class CancellationTokenCallbackThrowingException : CooperativeCancellationBase, IImportantExample
+    public sealed class CancellationTokenCallbackThrowingExceptionExample : CooperativeCancellationExampleBase, IImportantExample
     {
+        public const string CallbackThrowingExceptionMessage = "CallbackThrowingExceptionMessage";
+
+        public bool ThrowOnFirstException { get; set; }
+
         protected override void OnRun()
         {
             var cancellationTokenSource = new CancellationTokenSource();
@@ -15,25 +19,22 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             ThreadPool.QueueUserWorkItem(x => Process(cancellationTokenSource.Token));
 
             Log.Info("WaitingForCancellation");
-            Interaction.ConfirmationRequest();
+            Thread.Sleep(250); // Simulate some work
 
             try
             {
-                cancellationTokenSource.Cancel(throwOnFirstException: false);
+                cancellationTokenSource.Cancel(throwOnFirstException: ThrowOnFirstException);
             }
             catch (VeryImportantException)
             {
                 // Just to present the example - you need to call the Cancel with throwOnFirstException set to true 
                 // Always prefer the AggregateException and call Cancel() 
-                Log.Info("VeryImportantException");
+                Log.Info(ImportantException);
             }
             catch (AggregateException)
             {
-                Log.Info("AggregateException");
+                Log.Info(AggregateExceptionMessage);
             }
-
-            Log.Info("WaitingForConfirmation");
-            Interaction.ConfirmationRequest();
         }
 
         private void Process(CancellationToken cancellationToken)
@@ -43,7 +44,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 
         private void TokenCallback()
         {
-            Log.Info("ThrowingException");
+            Log.Info(CallbackThrowingExceptionMessage);
 
             throw new VeryImportantException();
         }

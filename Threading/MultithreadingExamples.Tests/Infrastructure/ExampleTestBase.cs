@@ -52,9 +52,12 @@ namespace MultithreadingExamples.Tests.Infrastructure
             ThreadPool.QueueUserWorkItem(_ => Example.Run());
         }
 
-        protected bool WaitForExit(int timeout)
+        protected void WaitForExitConfirmation(int timeout)
         {
-            return _exitLockingStateObserver.Wait(timeout, () => { });
+            if (!_exitLockingStateObserver.Wait(timeout, () => { }))
+            {
+                throw new TimeoutException("WaitForExitConfirmation");
+            }
         }
     }
 }

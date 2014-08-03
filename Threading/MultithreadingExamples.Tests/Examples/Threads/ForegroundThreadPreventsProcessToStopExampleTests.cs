@@ -20,9 +20,9 @@ namespace MultithreadingExamples.Tests.Examples.Threads
 
             // Act
             RunExampleInThread();
+            WaitForExitConfirmation(1000);
 
             // Assert
-            Assert.IsTrue(WaitForExit(1000));
         }
     }
 }

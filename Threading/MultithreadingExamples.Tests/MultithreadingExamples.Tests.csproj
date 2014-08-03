@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Examples\AsyncAwaits\AsyncVoidExampleTests.cs" />
     <Compile Include="Examples\Collections\BlockingCollectionExampleTests.cs" />
+    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackExamplesTests.cs" />
+    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingExceptionTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
@@ -79,7 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Examples\CooperativeCancellations\" />
     <Folder Include="Examples\ReadWrites\" />
   </ItemGroup>
   <ItemGroup>

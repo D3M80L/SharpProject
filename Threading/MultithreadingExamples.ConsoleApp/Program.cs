@@ -36,11 +36,11 @@ namespace MultithreadingExamples.ConsoleApp
             Example<BackgroundThreadAndFinallyBlockExample>,
             Example<ForegroundThreadPreventsProcessToStopExample>,
             Example<UnhandledExceptionInThreadCrashesApplicationExample>,
-            Example<CancellationTokenCallbackThrowingException>,
-            Example<RegisteringCallbackAfterTheTokenSourceHasBeenCancelled>,
-            Example<UseThrowIfCancellationRequested>,
-            Example<CancellationTokenCallback>,
-            Example<UseIsCancellationRequested>
+            Example<CancellationTokenCallbackThrowingExceptionExample>,
+            Example<RegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample>,
+            Example<UseThrowIfCancellationRequestedExample>,
+            Example<CancellationTokenCallbackExample>,
+            Example<UseIsCancellationRequestedExample>
         };
 
         static void Main(string[] args)

@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
-    public abstract class CooperativeCancellationBase : ExampleBase
+    public abstract class CooperativeCancellationExampleBase : ExampleBase
     {
         public const string Cancelled = "Cancelled";
         public const string SendingMessage = "SendingMessage";
