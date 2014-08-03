@@ -18,15 +18,18 @@ namespace MultithreadingExamples.Tests.Examples.Signaling
             // Arrange
             Example.UsePulseAllInsteadOfPulse = false;
 
-            var countPadLockExitState = new CatchStateObserver(x => x.StartsWith(PulseExample.ExitedPadLock));
+            var countPadLockExitState = new CountdownStateObserver(x => x.Contains(PulseExample.ExitedPadLock), 1);
             StateMachine.AddObserver(countPadLockExitState);
+
+            var pulsedStateObserver = new CatchStateObserver(x => x == PulseExample.Pulsed);
+            StateMachine.AddObserver(pulsedStateObserver);
 
             // Act
             RunExampleInThread();
-            WaitForExitConfirmation(3000);
 
             // Assert
-            Assert.AreEqual(1, countPadLockExitState.Count);
+            Assert.IsTrue(pulsedStateObserver.Wait(5000));
+            Assert.IsTrue(countPadLockExitState.Wait(5000));
         }
 
         [Test]
@@ -35,15 +38,18 @@ namespace MultithreadingExamples.Tests.Examples.Signaling
             // Arrange
             Example.UsePulseAllInsteadOfPulse = true;
 
-            var countPadLockExitState = new CatchStateObserver(x => x.StartsWith(PulseExample.ExitedPadLock));
+            var countPadLockExitState = new CountdownStateObserver(x => x.Contains(PulseExample.ExitedPadLock), 4);
             StateMachine.AddObserver(countPadLockExitState);
+
+            var pulsedStateObserver = new CatchStateObserver(x => x == PulseExample.Pulsed);
+            StateMachine.AddObserver(pulsedStateObserver);
 
             // Act
             RunExampleInThread();
-            WaitForExitConfirmation(5000);
 
             // Assert
-            Assert.AreEqual(4, countPadLockExitState.Count);
+            Assert.IsTrue(pulsedStateObserver.Wait(5000));
+            Assert.IsTrue(countPadLockExitState.Wait(5000));
         }
     }
 }

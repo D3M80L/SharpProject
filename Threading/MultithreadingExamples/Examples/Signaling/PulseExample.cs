@@ -18,6 +18,7 @@ namespace MultithreadingExamples.Examples.Signaling
         public const string BeforePulseAll = "BeforePulseAll";
         public const string AfterPulseAll = "AfterPulseAll";
         public const string Pulsing = "Pulsing";
+        public const string Pulsed = "Pulsed";
 
         private readonly object _padLock = new object();
         private readonly CountdownEvent _countdownEvent = new CountdownEvent(4);
@@ -36,7 +37,7 @@ namespace MultithreadingExamples.Examples.Signaling
             
             CallPulseOrPulseAll();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
         }
 
         private void CallPulseOrPulseAll()
@@ -51,6 +52,8 @@ namespace MultithreadingExamples.Examples.Signaling
             {
                 Pulse();
             }
+
+            Log.Info(Pulsed);
         }
 
         private void Pulse()

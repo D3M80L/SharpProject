@@ -22,7 +22,7 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
 
             // Act
             RunExampleInThread();
-            WaitForExitConfirmation(1000);
+            WaitForExitConfirmation(5000);
 
             // Asert
             Assert.AreEqual(1, aggregateExceptionState.Count);

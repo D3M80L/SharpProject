@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
     /// Dobug / Release results differs
     /// </summary>
     [TestFixture]
-    public sealed class OptimizationTests
+    public sealed class OptimizationSensibleTests
     {
         [Test]
         public void OptimizationSensibleExample()

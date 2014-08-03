@@ -64,8 +64,10 @@
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
     <Compile Include="Examples\ReadWrites\SafeIncrement.cs" />
     <Compile Include="Examples\ReadWrites\UnsafeIncrement.cs" />
+    <Compile Include="Examples\Signaling\BarrierExample.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExample.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExample.cs" />
+    <Compile Include="Examples\Signaling\OnlyOneInstanceCanBeExecutedOnMachine.cs" />
     <Compile Include="Examples\Signaling\PulseExample.cs" />
     <Compile Include="Examples\Signaling\ResetEventExampleBase.cs" />
     <Compile Include="Examples\Tasks\CatchExceptionFromTaskExample.cs" />
@@ -84,7 +86,9 @@
     <Compile Include="Examples\ThreadLocals\ThreadStaticRandomInstanceExample.cs" />
     <Compile Include="Examples\Threads\AsyncCallbacksExample.cs" />
     <Compile Include="Examples\Threads\BackgroundThreadAndFinallyBlockExample.cs" />
+    <Compile Include="Examples\Threads\InappropriateLockingExample.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStopExample.cs" />
+    <Compile Include="Examples\Threads\LockingExample.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExample.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExampleBase.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureFixExample.cs" />

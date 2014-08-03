@@ -9,7 +9,8 @@ namespace MultithreadingExamples.Examples.Tasks
     {
         protected override void OnRun()
         {
-            var task = Task.Run(() => RunInTask());
+            var task = new Task(RunInTask, TaskCreationOptions.LongRunning);
+            task.Start();
 
             try
             {

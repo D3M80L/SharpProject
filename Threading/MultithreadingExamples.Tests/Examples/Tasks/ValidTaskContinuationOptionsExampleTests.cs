@@ -17,9 +17,9 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
 
             // Act
             RunExampleInThread();
-            WaitForExitConfirmation(1000);
 
             // Assert
+            Assert.IsTrue(onFaultedStateObserver.Wait(2000));
             Assert.AreEqual(1, onFaultedStateObserver.Count);
         }
     }
