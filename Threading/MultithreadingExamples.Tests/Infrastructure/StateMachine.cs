@@ -37,6 +37,14 @@ namespace MultithreadingExamples.Tests.Infrastructure
             return stateObserver;
         }
 
+        public TStateObserver[] GetObservers<TStateObserver>()
+        {
+            lock (_observers)
+            {
+                return _observers.OfType<TStateObserver>().ToArray();
+            }
+        }
+
         public void RemoveObserver(IStateObserver stateObserver)
         {
             lock (_observers)

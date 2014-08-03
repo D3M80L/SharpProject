@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class ForegroundThreadPreventsProcessToStop : ThreadExampleBase, IImportantExample
+    public sealed class ForegroundThreadPreventsProcessToStopExample : ThreadExampleBase, IImportantExample
     {
         protected override void OnRun()
         {
@@ -21,7 +21,7 @@ namespace MultithreadingExamples.Examples.Threads
         private void RunInThread()
         {
             Log.Info("RunInThread. IsBackground={0}", Thread.CurrentThread.IsBackground);
-            Thread.Sleep(5000);
+            Thread.Sleep(15000); // Simulate work
             Log.Info(ExitingFromThread);
         }
     }

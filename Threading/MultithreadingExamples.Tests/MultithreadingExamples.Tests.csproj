@@ -55,6 +55,17 @@
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
     <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
     <Compile Include="Examples\Threads\AsyncCallbacksExampleTests.cs" />
+    <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStopExampleTests.cs" />
+    <Compile Include="Examples\Threads\ModifiedClosureExampleTests.cs" />
+    <Compile Include="Examples\Threads\ModifiedClosureFixExampleTests.cs" />
+    <Compile Include="Examples\Threads\ThreadAbortExceptionExampleTests.cs" />
+    <Compile Include="Examples\Threads\ThreadInterrupdedExceptionExampleTests.cs" />
+    <Compile Include="Examples\Threads\UnhandledExceptionInThreadCrashesApplicationExampleTests.cs" />
+    <Compile Include="Infrastructure\CatchAndRememberStateObserver.cs" />
+    <Compile Include="Infrastructure\CatchStateObserverBase.cs" />
+    <Compile Include="Infrastructure\CountdownAndRememberStateObserver.cs" />
+    <Compile Include="Infrastructure\CountdownStateObserver.cs" />
+    <Compile Include="Infrastructure\CountdownStateObserverBase.cs" />
     <Compile Include="Infrastructure\ExampleTestBase.cs" />
     <Compile Include="Infrastructure\IStateObserver.cs" />
     <Compile Include="Infrastructure\Logger.cs" />

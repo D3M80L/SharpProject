@@ -1,10 +1,9 @@
 ﻿using System.Threading;
 using MultithreadingExamples.Infrastructure;
-using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class ModifiedClosureFix : ThreadExampleBase, ISolutionFor<ModifiedClosureExample>
+    public sealed class ModifiedClosureFixExample : ModifiedClosureExampleBase, ISolutionFor<ModifiedClosureExample>
     {
         /// <summary>
         /// Many developers do the same.  They point to a variable which is modified inside a loop.
@@ -19,13 +18,6 @@ namespace MultithreadingExamples.Examples.Threads
                 int i1 = i;
                 ThreadPool.QueueUserWorkItem(state => RunInThread(i1)); 
             }
-
-            Thread.Sleep(2000);
-        }
-
-        private void RunInThread(int i)
-        {
-            Log.Info("I={0}", i);
         }
     }
 }

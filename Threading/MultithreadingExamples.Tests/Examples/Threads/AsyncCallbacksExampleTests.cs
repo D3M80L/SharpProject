@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MultithreadingExamples.Examples.Threads;
+using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Tests.Infrastructure;
 using NUnit.Framework;
 
@@ -13,13 +14,13 @@ namespace MultithreadingExamples.Tests.Examples.Threads
     public sealed class AsyncCallbacksExampleTests : ExampleTestBase<AsyncCallbacksExample>
     {
         [Test]
-        public void RunExample()
+        public void ImportantExceptionHasBeenCatched()
         {
             // Arrange
             var afterEndInvoke = new CatchStateObserver(x => x == AsyncCallbacksExample.AfterEndInvoke);
             StateMachine.AddObserver(afterEndInvoke);
 
-            var importantException = new CatchStateObserver(x => x == AsyncCallbacksExample.ImportantException);
+            var importantException = new CatchStateObserver(x => x == ExampleBase.ImportantException);
             StateMachine.AddObserver(importantException);
 
             // Act

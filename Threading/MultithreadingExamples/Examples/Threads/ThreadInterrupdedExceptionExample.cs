@@ -5,6 +5,9 @@ namespace MultithreadingExamples.Examples.Threads
 {
     public sealed class ThreadInterrupdedExceptionExample : ThreadExampleBase
     {
+        public const string ThreadInterruptedExceptionMessage = "ThreadInterruptedExceptionMessage";
+        public const string ExitingWorkerThread = "ExitingWorkerThread";
+
         protected override void OnRun()
         {
             var thread = StartThread();
@@ -13,7 +16,6 @@ namespace MultithreadingExamples.Examples.Threads
 
             Log.Info("Interrupting");
             thread.Interrupt();
-            Thread.Sleep(1000);
         }
 
         private Thread StartThread()
@@ -31,18 +33,25 @@ namespace MultithreadingExamples.Examples.Threads
         {
             try
             {
-                while (true)
+                try
                 {
-                    Log.Info(".");
-                    Thread.Sleep(250);
+                    while (true)
+                    {
+                        Log.Info(".");
+                        Thread.Sleep(250);
+                    }
+                }
+                catch (ThreadInterruptedException)
+                {
+                    Log.Info(ThreadInterruptedExceptionMessage);
                 }
             }
             catch (ThreadInterruptedException)
             {
-                Log.Info("ThreadInterruptedException");
+                Log.Info(ThreadInterruptedExceptionMessage);
             }
 
-            Log.Info("SomeOtherWork");
+            Log.Info(ExitingWorkerThread);
         }
     }
 }

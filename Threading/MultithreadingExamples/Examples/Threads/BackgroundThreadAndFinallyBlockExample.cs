@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class BackgroundThreadAndFinallyBlock : ThreadExampleBase, IImportantExample
+    public sealed class BackgroundThreadAndFinallyBlockExample : ThreadExampleBase, IImportantExample
     {
         protected override void OnRun()
         {

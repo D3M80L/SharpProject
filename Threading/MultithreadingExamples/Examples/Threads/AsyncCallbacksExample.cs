@@ -17,15 +17,15 @@ namespace MultithreadingExamples.Examples.Threads
 
         protected override void OnRun()
         {
-            Func<int, int> calculator = Calculate;
-            calculator.BeginInvoke(10, CalculationCallback, calculator); // NOTE: the callback
+            Func<int, int> calculator = CalculateInThread;
+            calculator.BeginInvoke(10, callback: CalculationCallback, @object: calculator); // NOTE: the callback
         }
 
-        private int Calculate(int x)
+        private int CalculateInThread(int x)
         {
             Log.Info(Calculating);
 
-            throw new VeryImportantException();
+            throw new VeryImportantException(); // Remember what happened, when an exception was thrown in a Thread ?
         }
 
         private void CalculationCallback(IAsyncResult asyncResult)

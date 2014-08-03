@@ -18,6 +18,8 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
         protected StateMachine StateMachine { get; private set; }
 
+        private LockingStateObserver _exitLockingStateObserver = null;
+
         [SetUp]
         public void TestSetup()
         {
@@ -25,7 +27,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
             StateMachine = new StateMachine();
             StateMachine.AddObserver(new OnlyDisplayStateObserver());
-            StateMachine.AddObserver(new LockingStateObserver(x => x == ExampleBase.PressEnterToExit));
+            _exitLockingStateObserver = StateMachine.AddObserver(new LockingStateObserver(x => x == ExampleBase.PressEnterToExit));
 
             Log          = new StateMachineLoggerMock(StateMachine);
             Interaction = MockRepository.GenerateStub<IInteraction>();
@@ -39,6 +41,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
         [TearDown]
         public void TearDown()
         {
+            _exitLockingStateObserver = null;
             Log = null;
             Interaction = null;
             Example.Dispose();
@@ -47,6 +50,11 @@ namespace MultithreadingExamples.Tests.Infrastructure
         protected void RunExampleInThread()
         {
             ThreadPool.QueueUserWorkItem(_ => Example.Run());
+        }
+
+        protected bool WaitForExit(int timeout)
+        {
+            return _exitLockingStateObserver.Wait(timeout, () => { });
         }
     }
 }

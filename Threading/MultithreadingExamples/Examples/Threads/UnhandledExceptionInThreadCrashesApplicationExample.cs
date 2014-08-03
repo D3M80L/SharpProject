@@ -12,8 +12,12 @@ namespace MultithreadingExamples.Examples.Threads
     // Thus, it is possible for the UnhandledException event to be raised without the application terminating. \
     // Starting with the .NET Framework version 2.0, this backstop for unhandled exceptions in child threads was removed, 
     // because the cumulative effect of such silent failures included performance degradation, corrupted data, and lockups, all of which were difficult to debug. 
-    public sealed class UnhandledExceptionInThread : ThreadExampleBase, IImportantExample
+    public sealed class UnhandledExceptionInThreadCrashesApplicationExample : ThreadExampleBase, IImportantExample
     {
+        public const string ThrowingException = "ThrowingException";
+        public const string DoingSomethingElse = "DoingSomethingElse";
+        public const string FinishedOtherWork = "FinishedOtherWork";
+
         protected override void OnRun()
         {
             StartThread();
@@ -30,14 +34,15 @@ namespace MultithreadingExamples.Examples.Threads
 
         private void MakeSomeOtherWork()
         {
-            Log.Info("DoingSomethingElse");
-            Thread.Sleep(5000);
+            Log.Info(DoingSomethingElse);
+            Thread.Sleep(2000); // Simulate some work
+            Log.Info(FinishedOtherWork);
         }
 
         private void RunInThread()
         {
             Thread.Sleep(1000);
-            Log.Info("ThrowingException");
+            Log.Info(ThrowingException);
             throw new VeryImportantException(); // An unhandled exception crashes the whole application
         }
     }

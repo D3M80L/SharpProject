@@ -7,6 +7,8 @@ namespace MultithreadingExamples.Examples.Threads
 {
     public sealed class ThreadAbortExceptionExample : ThreadExampleBase, IImportantExample, IHasSolutionIn<CooperativeCancellationBase>
     {
+        public const string ThreadAbortExceptionMessage = "ThreadAbortExceptionMessage";
+
         protected override void OnRun()
         {
             var thread = StartThread();
@@ -14,7 +16,6 @@ namespace MultithreadingExamples.Examples.Threads
 
             Log.Info("Aborting");
             thread.Abort();
-            Thread.Sleep(1000);
         }
 
         private Thread StartThread()
@@ -36,20 +37,20 @@ namespace MultithreadingExamples.Examples.Threads
                 {
                     while (true)
                     {
-                        Log.Info(".");
+                        Log.Info("."); // Simulate some work
                         Thread.Sleep(250);
                     }
                 }
                 catch (ThreadAbortException threadAbortException)
                 {
-                    Log.Info("ThreadAbortException");
+                    Log.Info(ThreadAbortExceptionMessage);
                     Log.Info(threadAbortException.StackTrace);
                     // note, that this exception is rethrown in a fashion of 'throw threadAbortException;'
                 }
             }
             catch (ThreadAbortException threadAbortException)
             {
-                Log.Info("SecondAbortException");
+                Log.Info(ThreadAbortExceptionMessage);
                 Log.Info(threadAbortException.StackTrace); // note, that this stack trace contains only information from the first catch block
             }
 
