@@ -55,6 +55,7 @@
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExampleTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />
+    <Compile Include="Examples\Signaling\PulseExampleTests.cs" />
     <Compile Include="Examples\Tasks\CatchExceptionFromTaskExampleTests.cs" />
     <Compile Include="Examples\Tasks\TaskContinuationExampleTests.cs" />
     <Compile Include="Examples\Tasks\ValidTaskContinuationOptionsExampleTests.cs" />

@@ -66,6 +66,7 @@
     <Compile Include="Examples\ReadWrites\UnsafeIncrement.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExample.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExample.cs" />
+    <Compile Include="Examples\Signaling\PulseExample.cs" />
     <Compile Include="Examples\Signaling\ResetEventExampleBase.cs" />
     <Compile Include="Examples\Tasks\CatchExceptionFromTaskExample.cs" />
     <Compile Include="Examples\Tasks\CreateTaskUsingFactoryExample.cs" />
