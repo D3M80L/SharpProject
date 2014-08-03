@@ -18,7 +18,7 @@ namespace MultithreadingExamples.ConsoleApp
         private static readonly List<Func<ExampleBase>> Examples = new List<Func<ExampleBase>>
         {
             //Example<OptimizationSensibleExample>,
-            Example<TimerGarbageCollectorSensible>,
+            Example<TimerGarbageCollectorSensibleExample>,
             Example<ValidTaskContinuationOptionsExample>,
             Example<InvalidTaskContinuationOptionsExample>,
             Example<TaskCancellation>,

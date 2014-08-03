@@ -9,7 +9,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.OptimizationSensibles
 {
-    public sealed class TimerGarbageCollectorSensible : OptimizationSensibleBase, IImportantExample
+    public sealed class TimerGarbageCollectorSensibleExample : OptimizationSensibleBase, IImportantExample
     {
         public const string TimerMessage = "TimerMessage";
         public const string GcCollect = "GcCollect";

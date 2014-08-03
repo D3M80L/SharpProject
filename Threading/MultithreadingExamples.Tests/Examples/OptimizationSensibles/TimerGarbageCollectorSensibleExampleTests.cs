@@ -14,18 +14,18 @@ using Rhino.Mocks;
 namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
 {
     [TestFixture]
-    public sealed class TimerGarbageCollectorSensibleTests : ExampleTestBase<TimerGarbageCollectorSensible>
+    public sealed class TimerGarbageCollectorSensibleExampleTests : ExampleTestBase<TimerGarbageCollectorSensibleExample>
     {
         [Test]
         public void NoTimerMessageAfterGcCollectInReleaseBuild()
         {
             // Arrange
-            var gcCollectState = StateMachine.AddObserver(new ExclusiveLockStateObserver(state => state == TimerGarbageCollectorSensible.GcCollect));
+            var gcCollectState = StateMachine.AddObserver(new ExclusiveLockStateObserver(state => state == TimerGarbageCollectorSensibleExample.GcCollect));
 
             // Act
             RunExampleInThread();
 
-            var timerMessageState = new CatchStateObserver(state => state == TimerGarbageCollectorSensible.TimerMessage);
+            var timerMessageState = new CatchStateObserver(state => state == TimerGarbageCollectorSensibleExample.TimerMessage);
             
             var gcCollected = gcCollectState
                 .Wait(5000, action: () =>

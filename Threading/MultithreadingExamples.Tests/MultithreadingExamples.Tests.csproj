@@ -50,7 +50,7 @@
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackExamplesTests.cs" />
     <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingExceptionTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
-    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleExampleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExampleTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />

@@ -8,6 +8,9 @@ using Rhino.Mocks;
 
 namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
 {
+    /// <summary>
+    /// Dobug / Release results differs
+    /// </summary>
     [TestFixture]
     public sealed class OptimizationTests
     {

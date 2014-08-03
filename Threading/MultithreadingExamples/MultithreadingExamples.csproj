@@ -57,7 +57,7 @@
     <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileReadWriteExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationOrderSensibleExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleCounterExampleBase.cs" />
-    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensible.cs" />
+    <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleBase.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExample.cs" />
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
