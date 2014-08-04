@@ -21,6 +21,12 @@ namespace MultithreadingExamples.Tests.Examples.OptimizationSensibles
         }
 
         [Test]
+        public void InvalidSpinningExample()
+        {
+            TestExample<InvalidSpinningExample>();
+        }
+
+        [Test]
         public void BlockOptimizationWithVolatileReadWriteExample()
         {
             TestExample<BlockOptimizationWithVolatileReadWriteExample>();

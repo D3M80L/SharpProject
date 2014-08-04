@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class LockingExample : ExampleBase, ISolutionFor<InappropriateLockingExample>
+    public sealed class LockExample : ExampleBase, ISolutionFor<InappropriateLockingExample>
     {
         public const string RunInThreadMessage = "RunInThreadMessage";
         public const string OnRunMessage = "OnRunMessage";
@@ -15,13 +15,13 @@ namespace MultithreadingExamples.Examples.Threads
 
         protected override void OnRun()
         {
-            lock (_padlock) // Monitor.Enter(_padlock);
+            lock (this) // Monitor.Enter(this);
             {
                 var task = new Task(RunInThread, TaskCreationOptions.LongRunning);
                 task.Start();
                 Log.Info(WaitingForTask);
                 task.Wait(); // Deadlock
-            } // Monitor.Exit(_padlock); But not only!
+            } // Monitor.Exit(this); But not only!
         }
 
         private void RunInThread()
@@ -38,6 +38,5 @@ namespace MultithreadingExamples.Examples.Threads
                 Log.Info(message);
             } // Monitor.Exit(_padlock); But not only!
         }
-
     }
 }

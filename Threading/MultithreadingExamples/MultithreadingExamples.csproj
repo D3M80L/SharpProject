@@ -56,6 +56,7 @@
     <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithMemoryBarierExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileReadWriteExample.cs" />
+    <Compile Include="Examples\OptimizationSensibles\InvalidSpinningExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationOrderSensibleExample.cs" />
     <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleCounterExampleBase.cs" />
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleExample.cs" />
@@ -70,6 +71,9 @@
     <Compile Include="Examples\Signaling\OnlyOneInstanceCanBeExecutedOnMachine.cs" />
     <Compile Include="Examples\Signaling\PulseExample.cs" />
     <Compile Include="Examples\Signaling\ResetEventExampleBase.cs" />
+    <Compile Include="Examples\Signaling\SemaphoreExample.cs" />
+    <Compile Include="Examples\Signaling\SemaphoreExampleBase.cs" />
+    <Compile Include="Examples\Signaling\SemaphoreSlimExample.cs" />
     <Compile Include="Examples\Tasks\CatchExceptionFromTaskExample.cs" />
     <Compile Include="Examples\Tasks\CreateTaskUsingFactoryExample.cs" />
     <Compile Include="Examples\Tasks\InvalidTaskContinuationOptionsExample.cs" />
@@ -88,10 +92,11 @@
     <Compile Include="Examples\Threads\BackgroundThreadAndFinallyBlockExample.cs" />
     <Compile Include="Examples\Threads\InappropriateLockingExample.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStopExample.cs" />
-    <Compile Include="Examples\Threads\LockingExample.cs" />
+    <Compile Include="Examples\Threads\LockExample.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExample.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExampleBase.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureFixExample.cs" />
+    <Compile Include="Examples\Threads\SynchronizationExample.cs" />
     <Compile Include="Examples\Threads\ThreadAbortExceptionExample.cs" />
     <Compile Include="Examples\Threads\ThreadExampleBase.cs" />
     <Compile Include="Examples\Threads\ThreadInterrupdedExceptionExample.cs" />

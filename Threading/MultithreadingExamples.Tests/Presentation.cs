@@ -42,7 +42,7 @@ namespace MultithreadingExamples.Tests
                 .ExplainExample<UnsafeIncrement>()
                 .ExplainExample<SafeIncrement>()
                 .ExplainExample<InappropriateLockingExample>()
-                .ExplainExample<LockingExample>();
+                .ExplainExample<LockExample>();
 
             AfterShortBreak()
                 .ExplainTest<OptimizationSensibleTests>()
@@ -70,7 +70,10 @@ namespace MultithreadingExamples.Tests
                 .ExplainTest<ManualResetEventExampleTests>()
                 .ExplainTest<ManualResetEventSlimExampleTests>()
                 .ExplainTest<PulseExampleTests>()
-                .ExplainExample<BarrierExample>();
+                .ExplainExample<BarrierExample>()
+                .ExplainExample<SemaphoreExample>()
+                .ExplainExample<SemaphoreSlimExample>()
+                .ExplainExample<ContextBoundSynchronizationExample>();
         }
 
         private Presentation AfterIntroduction()

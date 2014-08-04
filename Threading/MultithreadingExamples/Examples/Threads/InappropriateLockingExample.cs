@@ -9,7 +9,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.Threads
 {
-    public sealed class InappropriateLockingExample : ExampleBase, IImportantExample, IHasSolutionIn<LockingExample>
+    public sealed class InappropriateLockingExample : ExampleBase, IImportantExample, IHasSolutionIn<LockExample>
     {
         public const string RunInThreadMessage = "RunInThreadMessage";
         public const string OnRunMessage = "OnRunMessage";
@@ -36,7 +36,7 @@ namespace MultithreadingExamples.Examples.Threads
         {
             Log.Info(Adding);
 
-            lock (this)
+            lock (this) //
             {
                 Log.Info(message);
             }
