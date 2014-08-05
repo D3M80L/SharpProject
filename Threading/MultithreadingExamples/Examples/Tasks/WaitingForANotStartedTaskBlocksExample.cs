@@ -6,21 +6,21 @@ namespace MultithreadingExamples.Examples.Tasks
 {
     public sealed class WaitingForANotStartedTaskBlocksExample : TasksExampleBase, IImportantExample
     {
-        public const string BeforeWait = "BeforeWait";
-        public const string AfterWait = "AfterWait";
+        public const string BeforeWaitState = "BeforeWaitState";
+        public const string AfterWaitState = "AfterWaitState";
 
         protected override void OnRun()
         {
             var task = new Task(RunInTask);
 
-            Log.Info(BeforeWait);
+            Log.Info(BeforeWaitState);
             task.Wait(); // Blocked
-            Log.Info(AfterWait);
+            Log.Info(AfterWaitState);
         }
 
         private void RunInTask()
         {
-            Log.Info(InTask);
+            Log.Info(InTaskState);
         }
     }
 }

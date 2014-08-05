@@ -23,7 +23,7 @@ namespace MultithreadingExamples.ThreadingModels
     /// </summary>
     public sealed class LockingExample : ThreadingModelsBase, IHasSolutionIn<SolutionForLockingExample>, IRelatedWith<AsyncVoidCrashingExample>
     {
-        public const string Response = "Response";
+        public const string ResponseState = "ResponseState";
 
         /// <summary>
         ///  This method, when called from UI thread will lock the application
@@ -33,7 +33,7 @@ namespace MultithreadingExamples.ThreadingModels
             var response = Retrieve().Result;
 
             Log.Info(response);
-            Log.Info(Response);
+            Log.Info(ResponseState);
         }
 
         private async Task<string> Retrieve()

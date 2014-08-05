@@ -40,7 +40,7 @@ namespace MultithreadingExamples.Examples.Threads
             }
             catch (VeryImportantException)
             {
-                Log.Info(ImportantException);
+                Log.Info(ImportantExceptionState);
             }
         }
     }

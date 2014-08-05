@@ -19,7 +19,7 @@ namespace MultithreadingExamples.Examples.Tasks
 
         private void RunInTask(string message)
         {
-            Log.Info("{0}-{1} ThreadId={2}", InTask, message, Thread.CurrentThread.ManagedThreadId);
+            Log.Info("{0}-{1} ThreadId={2}", InTaskState, message, Thread.CurrentThread.ManagedThreadId);
         }
     }
 }

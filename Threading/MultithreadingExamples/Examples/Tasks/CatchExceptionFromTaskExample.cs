@@ -18,7 +18,7 @@ namespace MultithreadingExamples.Examples.Tasks
             }
             catch (VeryImportantException)
             {
-                Log.Info(ImportantException); // Not catched
+                Log.Info(ImportantExceptionState); // Not catched
             }
             catch (AggregateException)
             {
@@ -28,7 +28,7 @@ namespace MultithreadingExamples.Examples.Tasks
 
         private void RunInTask()
         {
-            Log.Info(InTask);
+            Log.Info(InTaskState);
             // If you run this method in pure Thread or ThreadPool, the application crashes
             throw new VeryImportantException();
         }

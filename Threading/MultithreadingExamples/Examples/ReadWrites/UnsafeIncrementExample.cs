@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.ReadWrites
 {
-    public sealed class UnsafeIncrement : ReadWritesBase, IImportantExample, IHasSolutionIn<SafeIncrement>
+    public sealed class UnsafeIncrementExample : ReadWritesBase, IImportantExample, IHasSolutionIn<SafeIncrementExample>
     {
         public long _x = 0;
         public long _y = 0;
@@ -16,7 +16,7 @@ namespace MultithreadingExamples.Examples.ReadWrites
                 ThreadPool.QueueUserWorkItem(callBack: _ => Increment());
             }
 
-            Thread.Sleep(2000);
+            WaitForFinish();
 
             Log.Info("X={0}", _x);
             Log.Info("Y={0}", _y);
@@ -27,6 +27,8 @@ namespace MultithreadingExamples.Examples.ReadWrites
             // note: Torn read - may happen too
             ++_x;
             ++_y;
+
+            Notify();
         }
     }
 }

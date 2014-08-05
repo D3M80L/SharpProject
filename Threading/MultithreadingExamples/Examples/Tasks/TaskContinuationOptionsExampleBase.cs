@@ -23,12 +23,12 @@ namespace MultithreadingExamples.Examples.Tasks
         {
             try
             {
-                Log.Info("{0} ThreadId={1}", InTask, Thread.CurrentThread.ManagedThreadId);
+                Log.Info("{0} ThreadId={1}", InTaskState, Thread.CurrentThread.ManagedThreadId);
                 throw new VeryImportantException();
             }
             catch (VeryImportantException)
             {
-                Log.Info(ImportantException);
+                Log.Info(ImportantExceptionState);
                 throw;
             }
         }

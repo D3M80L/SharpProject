@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.OptimizationSensibles
 {
-    public sealed class InvalidSpinningExample : OptimizationSensibleCounterExampleBase, IImportantExample
+    public sealed class CustomSpinningExample : OptimizationSensibleCounterExampleBase, IImportantExample
     {
         private bool _stopCounting = false;
 

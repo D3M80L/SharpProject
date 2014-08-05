@@ -21,7 +21,7 @@ namespace MultithreadingExamples.Examples.Threads
         private void RunInThread()
         {
             Log.Info("RunInThread. IsBackground={0}", Thread.CurrentThread.IsBackground);
-            Thread.Sleep(15000); // Simulate work
+            Thread.Sleep(30000); // Simulate work
             Log.Info(ExitingFromThread);
         }
     }

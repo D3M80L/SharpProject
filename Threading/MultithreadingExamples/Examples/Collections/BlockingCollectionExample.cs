@@ -7,10 +7,10 @@ namespace MultithreadingExamples.Examples.Collections
 {
     public sealed class BlockingCollectionExample : CollectionsExampleBase
     {
-        public const string Consumed = "Consumed";
-        public const string Producing = "Producing";
-        public const string ConsumptionFinished = "ConsumptionFinished";
-        public const string ProductionFinished = "ProductionFinished";
+        public const string ConsumedState            = "ConsumedState";
+        public const string ProducingState           = "ProducingState";
+        public const string ConsumptionFinishedState = "ConsumptionFinishedState";
+        public const string ProductionFinishedState  = "ProductionFinishedState";
 
         private readonly BlockingCollection<string> _blockingCollection = new BlockingCollection<string>();
 
@@ -24,22 +24,22 @@ namespace MultithreadingExamples.Examples.Collections
         {
             for (int i = 0; i < 5; ++i)
             {
-                Log.Info(Producing);
-                _blockingCollection.Add(Producing);
+                Log.Info(ProducingState);
+                _blockingCollection.Add(ProducingState);
                 Thread.Sleep(500); // Simulte some work
             }
 
-            Log.Info(ProductionFinished);
+            Log.Info(ProductionFinishedState);
         }
 
         private void Consume()
         {
             foreach (var item in _blockingCollection.GetConsumingEnumerable())
             {
-                Log.Info(Consumed);
+                Log.Info(ConsumedState);
             }
 
-            Log.Info(ConsumptionFinished);
+            Log.Info(ConsumptionFinishedState);
         }
     }
 }

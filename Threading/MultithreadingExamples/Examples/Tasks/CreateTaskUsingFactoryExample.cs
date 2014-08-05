@@ -18,7 +18,7 @@ namespace MultithreadingExamples.Examples.Tasks
 
         private void RunInTask()
         {
-            Log.Info(InTask + "#ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Log.Info(InTaskState + "#ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
         }
     }
 }

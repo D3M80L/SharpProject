@@ -14,9 +14,9 @@ namespace MultithreadingExamples.Examples.Threads
     // because the cumulative effect of such silent failures included performance degradation, corrupted data, and lockups, all of which were difficult to debug. 
     public sealed class UnhandledExceptionInThreadCrashesApplicationExample : ThreadExampleBase, IImportantExample
     {
-        public const string ThrowingException = "ThrowingException";
-        public const string DoingSomethingElse = "DoingSomethingElse";
-        public const string FinishedOtherWork = "FinishedOtherWork";
+        public const string ThrowingExceptionState  = "ThrowingExceptionState";
+        public const string DoingSomethingElseState = "DoingSomethingElseState";
+        public const string FinishedOtherWorkState  = "FinishedOtherWorkState";
 
         protected override void OnRun()
         {
@@ -34,15 +34,15 @@ namespace MultithreadingExamples.Examples.Threads
 
         private void MakeSomeOtherWork()
         {
-            Log.Info(DoingSomethingElse);
+            Log.Info(DoingSomethingElseState);
             Thread.Sleep(2000); // Simulate some work
-            Log.Info(FinishedOtherWork);
+            Log.Info(FinishedOtherWorkState);
         }
 
         private void RunInThread()
         {
             Thread.Sleep(1000);
-            Log.Info(ThrowingException);
+            Log.Info(ThrowingExceptionState);
             throw new VeryImportantException(); // An unhandled exception crashes the whole application
         }
     }

@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
-    public sealed class RegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample : CooperativeCancellationExampleBase
+    public sealed class CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample : CooperativeCancellationExampleBase
     {
         public const string CallbackMessage = "CallbackMessage";
 
@@ -17,7 +17,6 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             cancellationTokenSource.Cancel();
 
             Process(token);
-
         }
 
         private void Process(CancellationToken cancellationToken)

@@ -31,7 +31,7 @@ namespace MultithreadingExamples.Examples.Tasks
 
         private void RunInTask(CancellationToken cancellationToken)
         {
-            Log.Info("{0} ThreadId={1}", InTask, Thread.CurrentThread.ManagedThreadId);
+            Log.Info("{0} ThreadId={1}", InTaskState, Thread.CurrentThread.ManagedThreadId);
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();

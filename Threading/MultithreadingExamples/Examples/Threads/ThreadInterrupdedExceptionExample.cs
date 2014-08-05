@@ -5,8 +5,8 @@ namespace MultithreadingExamples.Examples.Threads
 {
     public sealed class ThreadInterrupdedExceptionExample : ThreadExampleBase
     {
-        public const string ThreadInterruptedExceptionMessage = "ThreadInterruptedExceptionMessage";
-        public const string ExitingWorkerThread = "ExitingWorkerThread";
+        public const string ThreadInterruptedExceptionState = "ThreadInterruptedExceptionState";
+        public const string ExitingWorkerThreadState        = "ExitingWorkerThreadState";
 
         protected override void OnRun()
         {
@@ -43,15 +43,15 @@ namespace MultithreadingExamples.Examples.Threads
                 }
                 catch (ThreadInterruptedException)
                 {
-                    Log.Info(ThreadInterruptedExceptionMessage);
+                    Log.Info(ThreadInterruptedExceptionState);
                 }
             }
             catch (ThreadInterruptedException)
             {
-                Log.Info(ThreadInterruptedExceptionMessage);
+                Log.Info(ThreadInterruptedExceptionState);
             }
 
-            Log.Info(ExitingWorkerThread);
+            Log.Info(ExitingWorkerThreadState);
         }
     }
 }

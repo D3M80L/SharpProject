@@ -21,14 +21,6 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
             timer.Change(0, 1000);
 
             PerformGarbageCollection();
-
-            ConfirmExit();
-        }
-
-        private void ConfirmExit()
-        {
-            Log.Info(PressEnterToContinue);
-            Interaction.ConfirmationRequest();
         }
 
         private void PerformGarbageCollection()

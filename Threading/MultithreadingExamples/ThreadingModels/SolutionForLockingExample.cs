@@ -7,7 +7,7 @@ namespace MultithreadingExamples.ThreadingModels
 {
     public sealed class SolutionForLockingExample : ThreadingModelsBase, ISolutionFor<LockingExample>
     {
-        public const string Response = "Response";
+        public const string Response = "ResponseState";
 
         protected override void OnRun()
         {

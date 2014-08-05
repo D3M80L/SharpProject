@@ -29,7 +29,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             {
                 // Just to present the example - you need to call the Cancel with throwOnFirstException set to true 
                 // Always prefer the AggregateException and call Cancel() 
-                Log.Info(ImportantException);
+                Log.Info(ImportantExceptionState);
             }
             catch (AggregateException)
             {

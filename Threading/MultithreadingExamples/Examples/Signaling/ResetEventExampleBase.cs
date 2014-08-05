@@ -7,11 +7,10 @@ namespace MultithreadingExamples.Examples.Signaling
 {
     public abstract class ResetEventExampleBase : ExampleBase
     {
-        public const string BeforeSignaling = "BeforeSignaling";
-        public const string AfterSignaling = "AfterSignaling";
-
-        public const string BeforeWaiting = "BeforeWaiting";
-        public const string AfterWaiting = "AfterWaiting";
+        public const string BeforeSignalingState = "BeforeSignalingState";
+        public const string AfterSignalingState  = "AfterSignalingState";
+        public const string BeforeWaitingState   = "BeforeWaitingState";
+        public const string AfterWaitingState    = "AfterWaitingState";
 
         protected override void OnRun()
         {
@@ -24,18 +23,18 @@ namespace MultithreadingExamples.Examples.Signaling
 
         private void Signal()
         {
-            Log.Info(BeforeSignaling);
+            Log.Info(BeforeSignalingState);
             OnSignal();
-            Log.Info(AfterSignaling);
+            Log.Info(AfterSignalingState);
         }
 
         protected abstract void OnSignal();
 
         private void Wait()
         {
-            Log.Info(BeforeWaiting);
+            Log.Info(BeforeWaitingState);
             OnWait();
-            Log.Info(AfterWaiting);
+            Log.Info(AfterWaitingState);
         }
 
         protected abstract void OnWait();

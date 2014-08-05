@@ -15,7 +15,7 @@ namespace MultithreadingExamples.Examples.AsyncAwaits
             }
             catch (VeryImportantException)
             {
-                Log.Info(ImportantException); // Is never caught
+                Log.Info(ImportantExceptionState); // Is never caught
             }
         }
 
@@ -25,7 +25,7 @@ namespace MultithreadingExamples.Examples.AsyncAwaits
 
             await Task.Delay(1000);
 
-            Log.Info(ThrowingException);
+            Log.Info(ThrowingExceptionState);
 
             throw new VeryImportantException();
         }
