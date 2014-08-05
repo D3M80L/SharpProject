@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using MultithreadingExamples.Infrastructure;
+﻿using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.OptimizationSensibles
@@ -21,7 +20,7 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
     /// </summary>
     public sealed class BlockOptimizationWithVolatileExample : OptimizationSensibleCounterExampleBase, ISolutionFor<OptimizationSensibleExample>
     {
-        private volatile bool _stopCounting = false;
+        private volatile bool _stopCounting;
 
         protected override void StopCounting()
         {

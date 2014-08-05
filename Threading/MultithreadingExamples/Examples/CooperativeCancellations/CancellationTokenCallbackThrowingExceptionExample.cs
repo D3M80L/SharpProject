@@ -23,7 +23,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 
             try
             {
-                cancellationTokenSource.Cancel(throwOnFirstException: ThrowOnFirstException);
+                cancellationTokenSource.Cancel(ThrowOnFirstException);
             }
             catch (VeryImportantException)
             {

@@ -5,7 +5,7 @@ namespace MultithreadingExamples.Examples.Signaling
 {
     public sealed class SemaphoreExample : SemaphoreExampleBase, IRelatedWith<SemaphoreSlimExample>
     {
-        private readonly Semaphore _semaphore = new Semaphore(initialCount: 2, maximumCount: 4, name: "MySemaphore"); // Spans multiple processes
+        private readonly Semaphore _semaphore = new Semaphore(2, 4, "MySemaphore"); // Spans multiple processes
 
         protected override void SemaphoreWaitOne()
         {

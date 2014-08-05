@@ -13,7 +13,7 @@ namespace MultithreadingExamples.Examples.Threads
 
         private void StartForegroundThread()
         {
-            var thread = new Thread(start: RunInThread);
+            var thread = new Thread(RunInThread);
             Log.Info(StartingThread);
             thread.Start();
         }

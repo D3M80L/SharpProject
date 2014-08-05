@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Infrastructure.Extensions;
 
@@ -10,7 +6,7 @@ namespace MultithreadingExamples.Examples.ThreadLocals
 {
     public abstract class ThreadLocalsExampleBase : ExampleBase
     {
-        public int Id
+        public int RandomInstanceHashCode
         {
             get
             {
@@ -26,7 +22,7 @@ namespace MultithreadingExamples.Examples.ThreadLocals
 
         protected override void OnRun()
         {
-            Log.Info(Id.ToString());
+            Log.Info(RandomInstanceHashCode.ToString());
         }
 
         protected abstract Random BuildRandom();

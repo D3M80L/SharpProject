@@ -15,7 +15,7 @@ namespace MultithreadingExamples.Examples.Threads
 
         private void StartBackgroundThread()
         {
-            var thread = new Thread(start: RunInThread);
+            var thread = new Thread(RunInThread);
             thread.IsBackground = true;
 
             Log.Info(StartingThread);

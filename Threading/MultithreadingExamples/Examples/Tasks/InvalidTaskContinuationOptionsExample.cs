@@ -11,10 +11,10 @@ namespace MultithreadingExamples.Examples.Tasks
             var cancellationTokenSource = new CancellationTokenSource();
             // A common mistake, that different continuation options are combined together with fluent interface
             Task
-                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationToken: cancellationTokenSource.Token)
-                .ContinueWith(t => OnCancelled(), continuationOptions: TaskContinuationOptions.OnlyOnCanceled)
-                .ContinueWith(t => OnFaulted(), continuationOptions: TaskContinuationOptions.OnlyOnFaulted) // SHOULD BE FIRED
-                .ContinueWith(t => OnFinished(), continuationOptions: TaskContinuationOptions.OnlyOnRanToCompletion);
+                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationTokenSource.Token)
+                .ContinueWith(t => OnCancelled(), TaskContinuationOptions.OnlyOnCanceled)
+                .ContinueWith(t => OnFaulted(), TaskContinuationOptions.OnlyOnFaulted) // SHOULD BE FIRED
+                .ContinueWith(t => OnFinished(), TaskContinuationOptions.OnlyOnRanToCompletion);
 
         }
     }

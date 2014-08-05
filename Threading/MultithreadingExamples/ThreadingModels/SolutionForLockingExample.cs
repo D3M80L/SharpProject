@@ -20,10 +20,10 @@ namespace MultithreadingExamples.ThreadingModels
         private async Task<string> Retrieve()
         {
             var response = await new HttpClient().GetAsync("http://wikipedia.pl/")
-                .ConfigureAwait(continueOnCapturedContext: false);
+                .ConfigureAwait(false);
 
             return await response.Content.ReadAsStringAsync()
-                .ConfigureAwait(continueOnCapturedContext: false);
+                .ConfigureAwait(false);
         }
     }
 }

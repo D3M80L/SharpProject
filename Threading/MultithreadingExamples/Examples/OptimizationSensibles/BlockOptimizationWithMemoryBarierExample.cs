@@ -6,7 +6,7 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
 {
     public sealed class BlockOptimizationWithMemoryBarierExample : OptimizationSensibleCounterExampleBase, ISolutionFor<OptimizationSensibleExample>
     {
-        private bool _stopCounting = false;
+        private bool _stopCounting;
 
         protected override void StopCounting()
         {

@@ -27,7 +27,7 @@ namespace MultithreadingExamples.Examples.Threads
 
         private void StartThread()
         {
-            var thread = new Thread(start: RunInThread);
+            var thread = new Thread(RunInThread);
             Log.Info(StartingThread);
             thread.Start();
         }

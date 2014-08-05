@@ -4,7 +4,7 @@ namespace MultithreadingExamples.Examples.Signaling
 {
     public sealed class ManualResetEventExample : ResetEventExampleBase
     {
-        private readonly ManualResetEvent _manualResetEvent = new ManualResetEvent(initialState: false);
+        private readonly ManualResetEvent _manualResetEvent = new ManualResetEvent(false);
 
         protected override void OnSignal()
         {

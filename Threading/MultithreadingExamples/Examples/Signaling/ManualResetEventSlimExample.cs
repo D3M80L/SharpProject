@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 
 namespace MultithreadingExamples.Examples.Signaling
 {
@@ -11,7 +7,7 @@ namespace MultithreadingExamples.Examples.Signaling
     /// </summary>
     public sealed class ManualResetEventSlimExample : ResetEventExampleBase
     {
-        private readonly ManualResetEventSlim _manualResetEventSlim = new ManualResetEventSlim(initialState: false);
+        private readonly ManualResetEventSlim _manualResetEventSlim = new ManualResetEventSlim(false);
 
         protected override void OnSignal()
         {

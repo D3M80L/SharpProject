@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MultithreadingExamples.Infrastructure.Extensions
+﻿namespace MultithreadingExamples.Infrastructure.Extensions
 {
     public static class LogExtensions
     {

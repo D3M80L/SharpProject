@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Infrastructure

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using MultithreadingExamples.Infrastructure;
-using MultithreadingExamples.Infrastructure.Extensions;
+﻿using MultithreadingExamples.Infrastructure;
 
 namespace MultithreadingExamples.Examples.OptimizationSensibles
 {

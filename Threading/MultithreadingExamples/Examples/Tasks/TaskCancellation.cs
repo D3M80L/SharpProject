@@ -11,8 +11,8 @@ namespace MultithreadingExamples.Examples.Tasks
             var cancellationTokenSource = new CancellationTokenSource();
 
             Task
-                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationToken: cancellationTokenSource.Token)
-                .ContinueWith(task => OnCancelled(), continuationOptions: TaskContinuationOptions.OnlyOnCanceled);
+                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationTokenSource.Token)
+                .ContinueWith(task => OnCancelled(), TaskContinuationOptions.OnlyOnCanceled);
 
             CancelTask(cancellationTokenSource);
 

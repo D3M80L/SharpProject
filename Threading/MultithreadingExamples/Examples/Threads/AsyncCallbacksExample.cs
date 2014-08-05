@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using MultithreadingExamples.Infrastructure.Exceptions;
 using MultithreadingExamples.Infrastructure.Extensions;
 
@@ -18,7 +13,7 @@ namespace MultithreadingExamples.Examples.Threads
         protected override void OnRun()
         {
             Func<int, int> calculator = CalculateInThread;
-            calculator.BeginInvoke(10, callback: CalculationCallback, @object: calculator); // NOTE: the callback
+            calculator.BeginInvoke(10, CalculationCallback, calculator); // NOTE: the callback
         }
 
         private int CalculateInThread(int x)

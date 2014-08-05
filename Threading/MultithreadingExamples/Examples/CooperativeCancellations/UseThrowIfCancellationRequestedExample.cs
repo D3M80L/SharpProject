@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.CooperativeCancellations

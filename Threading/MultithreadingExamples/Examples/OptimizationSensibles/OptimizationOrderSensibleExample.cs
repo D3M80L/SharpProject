@@ -13,10 +13,10 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
     /// </summary>
     public sealed class OptimizationOrderSensibleExample : OptimizationSensibleBase, IImportantExample
     {
-        private bool someOtherFlag = false;
-        private bool flag = false;
-        private long result = 0;
-        private int anotherResult = 0;
+        private bool someOtherFlag;
+        private bool flag;
+        private long result;
+        private int anotherResult;
 
         protected override void OnRun()
         {

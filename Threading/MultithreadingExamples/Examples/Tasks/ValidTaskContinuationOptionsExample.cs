@@ -10,11 +10,11 @@ namespace MultithreadingExamples.Examples.Tasks
         {
             var cancellationTokenSource = new CancellationTokenSource();
             var task = Task
-                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationToken: cancellationTokenSource.Token);
+                .Run(() => RunInTask(cancellationTokenSource.Token), cancellationTokenSource.Token);
 
-            task.ContinueWith(t => OnCancelled(), continuationOptions: TaskContinuationOptions.OnlyOnCanceled);
-            task.ContinueWith(t => OnFaulted(), continuationOptions: TaskContinuationOptions.OnlyOnFaulted); // SHOULD BE FIRED
-            task.ContinueWith(t => OnFinished(), continuationOptions: TaskContinuationOptions.OnlyOnRanToCompletion);
+            task.ContinueWith(t => OnCancelled(), TaskContinuationOptions.OnlyOnCanceled);
+            task.ContinueWith(t => OnFaulted(), TaskContinuationOptions.OnlyOnFaulted); // SHOULD BE FIRED
+            task.ContinueWith(t => OnFinished(), TaskContinuationOptions.OnlyOnRanToCompletion);
         }
     }
 }

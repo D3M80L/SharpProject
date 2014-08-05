@@ -13,7 +13,7 @@ namespace MultithreadingExamples.Examples.ReadWrites
         {
             for (int i = 0; i < 200; i++)
             {
-                ThreadPool.QueueUserWorkItem(callBack: _ => Increment());
+                ThreadPool.QueueUserWorkItem(_ => Increment());
             }
 
             WaitForFinish();

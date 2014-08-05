@@ -8,7 +8,7 @@ namespace MultithreadingExamples.Examples.OptimizationSensibles
     /// </summary>
     public sealed class OptimizationSensibleExample : OptimizationSensibleCounterExampleBase, IImportantExample, IHasSolutionIn<BlockOptimizationWithVolatileExample>
     {
-        private bool _stopCounting = false;
+        private bool _stopCounting;
 
         protected override void StopCounting()
         {
