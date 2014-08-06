@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.AsyncAwaits
         public void ExceptionThrownButStoredInTask()
         {
             // Arrange
-            var waitForException = new CatchStateObserver(x => x == ExampleBase.ImportantException);
+            var waitForException = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);
             StateMachine.AddObserver(waitForException);
 
             // Act

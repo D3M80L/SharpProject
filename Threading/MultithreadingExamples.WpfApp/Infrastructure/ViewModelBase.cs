@@ -9,8 +9,8 @@ namespace MultithreadingExamples.WpfApp.Infrastructure
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private int _busyCounter = 0;
-        private bool _isBusy = false;
+        private int _busyCounter;
+        private bool _isBusy;
         public bool IsBusy
         {
             get { return _isBusy; }

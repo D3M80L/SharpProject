@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
         public void BlocksInSomeCases()
         {
             // Arrange
-            var afterWaitState = new CatchStateObserver(x => x == WaitingForANotStartedTaskBlocksExample.AfterWait);
+            var afterWaitState = new CatchStateObserver(x => x == WaitingForANotStartedTaskBlocksExample.AfterWaitState);
             StateMachine.AddObserver(afterWaitState);
 
             // Act

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MultithreadingExamples.ConsoleApp.Infrastructure;
 using MultithreadingExamples.Examples.CooperativeCancellations;
 using MultithreadingExamples.Examples.OptimizationSensibles;
@@ -31,13 +29,13 @@ namespace MultithreadingExamples.ConsoleApp
             Example<ModifiedClosureExample>,
             Example<ThreadAbortExceptionExample>,
             Example<ThreadInterrupdedExceptionExample>,
-            Example<SafeIncrement>,
-            Example<UnsafeIncrement>,
+            Example<SafeIncrementExample>,
+            Example<UnsafeIncrementExample>,
             Example<BackgroundThreadAndFinallyBlockExample>,
             Example<ForegroundThreadPreventsProcessToStopExample>,
             Example<UnhandledExceptionInThreadCrashesApplicationExample>,
             Example<CancellationTokenCallbackThrowingExceptionExample>,
-            Example<RegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample>,
+            Example<CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample>,
             Example<UseThrowIfCancellationRequestedExample>,
             Example<CancellationTokenCallbackExample>,
             Example<UseIsCancellationRequestedExample>

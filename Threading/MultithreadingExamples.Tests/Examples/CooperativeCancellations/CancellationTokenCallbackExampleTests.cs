@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
 {
     [TestFixture]
-    public sealed class CancellationTokenCallbackExamplesTests : ExampleTestBase<CancellationTokenCallbackExample>
+    public sealed class CancellationTokenCallbackExampleTests : ExampleTestBase<CancellationTokenCallbackExample>
     {
         [Test]
         public void TwoRegisteredMethodsInCancellationTokenAreFired()

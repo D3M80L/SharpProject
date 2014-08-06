@@ -65,9 +65,7 @@
                 
                 <ListBox
                     ItemsSource="{Binding Messages}"
-                    Grid.Row="3">
-                    
-                </ListBox>
+                    Grid.Row="3" />
             </Grid>
         </GroupBox>
     </Grid>

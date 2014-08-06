@@ -7,7 +7,12 @@ using Rhino.Mocks;
 
 namespace MultithreadingExamples.Tests.Infrastructure
 {
-    public abstract class ExampleTestBase<TExample>
+    public abstract class ExampleTestBase
+    {
+        
+    }
+
+    public abstract class ExampleTestBase<TExample> : ExampleTestBase
         where TExample : ExampleBase, new()
     {
         protected TExample Example { get; private set; }
@@ -18,7 +23,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
         protected StateMachine StateMachine { get; private set; }
 
-        private LockingStateObserver _exitLockingStateObserver = null;
+        private LockingStateObserver _exitLockingStateObserver;
 
         [SetUp]
         public void TestSetup()
@@ -36,6 +41,13 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
             Example.Log = Log;
             Example.Interaction = Interaction;
+
+            OnTestSetup();
+        }
+
+        protected virtual void OnTestSetup()
+        {
+            
         }
 
         [TearDown]
@@ -45,6 +57,13 @@ namespace MultithreadingExamples.Tests.Infrastructure
             Log = null;
             Interaction = null;
             Example.Dispose();
+
+            OnTearDown();
+        }
+
+        protected virtual void OnTearDown()
+        {
+            
         }
 
         protected void RunExampleInThread()

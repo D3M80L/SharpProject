@@ -5,7 +5,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
     public static class PresentationExtensions
     {
         public static Presentation ExplainTest<TTest>(this Presentation presentation)
-            where TTest : class, new()
+            where TTest : ExampleTestBase, new()
         {
             return presentation;
         }

@@ -29,7 +29,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
         public bool Wait(int timeout)
         {
-            return _countdownEvent.Wait(millisecondsTimeout: timeout);
+            return _countdownEvent.Wait(timeout);
         }
     }
 }

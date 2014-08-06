@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace MultithreadingExamples.Tests.Infrastructure
 {
@@ -22,7 +21,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
 
             foreach (var observer in observers)
             {
-                observer.State(state: message);
+                observer.State(message);
             }
         }
 
@@ -62,7 +61,7 @@ namespace MultithreadingExamples.Tests.Infrastructure
             }
         }
 
-        private bool _disposed = false;
+        private bool _disposed;
         public void Dispose()
         {
             _disposed = true;

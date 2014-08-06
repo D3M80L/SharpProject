@@ -11,10 +11,10 @@ namespace MultithreadingExamples.Tests.Examples.Threads
         public void OneThreadInterrupdedExceptionMessageShouldBeCaught()
         {
             // Arrange
-            var exitingWorkerThreadState = new CatchStateObserver(x => x == ThreadInterrupdedExceptionExample.ExitingWorkerThread);
+            var exitingWorkerThreadState = new CatchStateObserver(x => x == ThreadInterrupdedExceptionExample.ExitingWorkerThreadState);
             StateMachine.AddObserver(exitingWorkerThreadState);
 
-            var countInterruptedExceptionMessageStates = new CatchStateObserver(x => x == ThreadInterrupdedExceptionExample.ThreadInterruptedExceptionMessage);
+            var countInterruptedExceptionMessageStates = new CatchStateObserver(x => x == ThreadInterrupdedExceptionExample.ThreadInterruptedExceptionState);
             StateMachine.AddObserver(countInterruptedExceptionMessageStates);
 
             // Act

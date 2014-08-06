@@ -17,7 +17,7 @@ namespace MultithreadingExamples.Tests.Examples.Threads
         public void ThreadThrowsExceptionButTheTestsSucceeds()
         {
             // Arrange
-            var finishedOtherWorkState = new CatchStateObserver(x => x == UnhandledExceptionInThreadCrashesApplicationExample.FinishedOtherWork);
+            var finishedOtherWorkState = new CatchStateObserver(x => x == UnhandledExceptionInThreadCrashesApplicationExample.FinishedOtherWorkState);
             StateMachine.AddObserver(finishedOtherWorkState);
 
             // Act

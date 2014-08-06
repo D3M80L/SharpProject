@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Tests.Examples.Signaling
         public void WaitForSignal()
         {
             // Arrange
-            var state = new CatchStateObserver(x => x == ResetEventExampleBase.AfterWaiting);
+            var state = new CatchStateObserver(x => x == ResetEventExampleBase.AfterWaitingState);
             StateMachine.AddObserver(state);
 
             // Act

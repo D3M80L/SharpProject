@@ -65,6 +65,7 @@
     <Compile Include="Examples\ReadWrites\ReadWritesBase.cs" />
     <Compile Include="Examples\ReadWrites\SafeIncrementExample.cs" />
     <Compile Include="Examples\ReadWrites\UnsafeIncrementExample.cs" />
+    <Compile Include="Examples\ReadWrites\UnsafeVolatileExample.cs" />
     <Compile Include="Examples\Signaling\BarrierExample.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExample.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExample.cs" />

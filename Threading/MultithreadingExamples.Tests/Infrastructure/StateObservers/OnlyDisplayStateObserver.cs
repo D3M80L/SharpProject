@@ -5,7 +5,7 @@ namespace MultithreadingExamples.Tests.Infrastructure.StateObservers
 {
     public sealed class OnlyDisplayStateObserver : StateObserverBase
     {
-        public OnlyDisplayStateObserver() : base(statePredicate: AnyState)
+        public OnlyDisplayStateObserver() : base(AnyState)
         {
         }
 

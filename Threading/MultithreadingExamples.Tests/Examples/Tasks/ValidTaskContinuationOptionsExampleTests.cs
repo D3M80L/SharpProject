@@ -6,7 +6,6 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
 {
     [TestFixture]
     public sealed class ValidTaskContinuationOptionsExampleTests : ExampleTestBase<ValidTaskContinuationOptionsExample>
-    //public sealed class ValidTaskContinuationOptionsExampleTests : ExampleTestBase<InvalidTaskContinuationOptionsExample>
     {
         [Test]
         public void OnFaultedShouleBeFired()
@@ -17,7 +16,7 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
 
             // Act
             RunExampleInThread();
-
+            
             // Assert
             Assert.IsTrue(onFaultedStateObserver.Wait(2000));
             Assert.AreEqual(1, onFaultedStateObserver.Count);

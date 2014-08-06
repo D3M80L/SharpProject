@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Tests.Examples.Threads
         public void TwoThreadAbortExceptionMessagesShouldBeCaught()
         {
             // Arrange
-            var countdownEvent = new CountdownStateObserver(x => x == ThreadAbortExceptionExample.ThreadAbortExceptionMessage, 2);
+            var countdownEvent = new CountdownStateObserver(x => x == ThreadAbortExceptionExample.ThreadAbortExceptionState, 2);
             StateMachine.AddObserver(countdownEvent);
 
             // Act

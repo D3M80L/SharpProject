@@ -46,13 +46,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Examples\AsyncAwaits\AsyncTaskExampleTests.cs" />
-    <Compile Include="Examples\AsyncAwaits\AsyncVoidExampleTests.cs" />
+    <Compile Include="Examples\AsyncAwaits\AsyncVoidCrashingExampleTests.cs" />
     <Compile Include="Examples\Collections\BlockingCollectionExampleTests.cs" />
-    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackExamplesTests.cs" />
-    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingExceptionTests.cs" />
-    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleTests.cs" />
+    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackExampleTests.cs" />
+    <Compile Include="Examples\CooperativeCancellations\CancellationTokenCallbackThrowingExceptionExampleTests.cs" />
+    <Compile Include="Examples\CooperativeCancellations\CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithMemoryBarierExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\BlockOptimizationWithVolatileReadWriteExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\CustomSpinningExampleTests.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleCounterExampleTestBase.cs" />
+    <Compile Include="Examples\OptimizationSensibles\OptimizationSensibleExampleTests.cs" />
     <Compile Include="Examples\OptimizationSensibles\TimerGarbageCollectorSensibleExampleTests.cs" />
     <Compile Include="Examples\Patterns\DoubleCheckedLazyTests.cs" />
+    <Compile Include="Examples\ReadWrites\SafeIncrementExampleTests.cs" />
+    <Compile Include="Examples\ReadWrites\UnsafeIncrementExampleTests.cs" />
+    <Compile Include="Examples\ReadWrites\UnsafeVolatileExampleTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventExampleTests.cs" />
     <Compile Include="Examples\Signaling\ManualResetEventSlimExampleTests.cs" />
     <Compile Include="Examples\Signaling\PulseExampleTests.cs" />
@@ -61,7 +70,10 @@
     <Compile Include="Examples\Tasks\ValidTaskContinuationOptionsExampleTests.cs" />
     <Compile Include="Examples\Tasks\WaitingForANotStartedTaskBlocksExampleTests.cs" />
     <Compile Include="Examples\ThreadingModels\LockingExampleTests.cs" />
-    <Compile Include="Examples\ThreadLocals\ThreadLocalsTests.cs" />
+    <Compile Include="Examples\ThreadLocals\SharedStaticRandomInstanceExampleTests.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadLocalRandomInstanceExampleTests.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadLocalsExampleTestBase.cs" />
+    <Compile Include="Examples\ThreadLocals\ThreadStaticRandomInstanceExampleTests.cs" />
     <Compile Include="Examples\Threads\AsyncCallbacksExampleTests.cs" />
     <Compile Include="Examples\Threads\ForegroundThreadPreventsProcessToStopExampleTests.cs" />
     <Compile Include="Examples\Threads\ModifiedClosureExampleTests.cs" />
@@ -88,9 +100,7 @@
     <Compile Include="Presentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Examples\ReadWrites\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

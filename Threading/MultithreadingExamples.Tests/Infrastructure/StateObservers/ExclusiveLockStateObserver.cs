@@ -4,7 +4,7 @@ namespace MultithreadingExamples.Tests.Infrastructure.StateObservers
 {
     public sealed class ExclusiveLockStateObserver : LockingStateObserver
     {
-        private volatile bool _lockEveryone = false;
+        private volatile bool _lockEveryone;
 
         public ExclusiveLockStateObserver(Predicate<string> statePredicate) : base(statePredicate)
         {

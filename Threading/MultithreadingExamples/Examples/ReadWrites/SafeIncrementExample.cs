@@ -4,7 +4,7 @@ using MultithreadingExamples.Infrastructure.Extensions;
 
 namespace MultithreadingExamples.Examples.ReadWrites
 {
-    public sealed class SafeIncrementExample : ReadWritesBase, ISolutionFor<UnsafeIncrementExample>
+    public sealed class SafeIncrementExample : ReadWritesBase, ISolutionFor<UnsafeIncrementExample>, ISolutionFor<UnsafeVolatileExample>
     {
         public long _x = 0;
         public long _y = 0;

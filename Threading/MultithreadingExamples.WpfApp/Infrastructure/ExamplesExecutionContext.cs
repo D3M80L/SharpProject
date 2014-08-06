@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Documents.DocumentStructures;
 using MultithreadingExamples.Infrastructure;
 
 namespace MultithreadingExamples.WpfApp.Infrastructure
@@ -56,7 +55,7 @@ namespace MultithreadingExamples.WpfApp.Infrastructure
             }
         }
 
-        private ManualResetEventSlim _manualReset = new ManualResetEventSlim(initialState: false);
+        private ManualResetEventSlim _manualReset = new ManualResetEventSlim(false);
         public void ConfirmationRequest()
         {
             _confirmationRequestHandler();

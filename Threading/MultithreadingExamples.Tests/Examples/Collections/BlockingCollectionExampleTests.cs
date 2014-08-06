@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MultithreadingExamples.Examples.Collections;
+﻿using MultithreadingExamples.Examples.Collections;
 using MultithreadingExamples.Tests.Infrastructure;
 using NUnit.Framework;
 
@@ -16,7 +11,7 @@ namespace MultithreadingExamples.Tests.Examples.Collections
         public void Run()
         {
             // Arrange
-            var productionFinishedState = new CatchStateObserver(x => x == BlockingCollectionExample.ProductionFinished);
+            var productionFinishedState = new CatchStateObserver(x => x == BlockingCollectionExample.ProductionFinishedState);
             StateMachine.AddObserver(productionFinishedState);
 
             // Act

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MultithreadingExamples.Examples.CooperativeCancellations;
+﻿using MultithreadingExamples.Examples.CooperativeCancellations;
 using MultithreadingExamples.Infrastructure;
 using MultithreadingExamples.Tests.Infrastructure;
 using NUnit.Framework;
@@ -12,7 +6,7 @@ using NUnit.Framework;
 namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
 {
     [TestFixture]
-    public sealed class CancellationTokenCallbackThrowingExceptionTests : ExampleTestBase<CancellationTokenCallbackThrowingExceptionExample>
+    public sealed class CancellationTokenCallbackThrowingExceptionExampleTests : ExampleTestBase<CancellationTokenCallbackThrowingExceptionExample>
     {
         [Test]
         public void ThrowOnFirstExceptionSetToFalse_AggregateExceptionShouldBeThrown()
@@ -21,7 +15,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
             var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionMessage);
             StateMachine.AddObserver(aggregateExceptionObserver);
 
-            var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantException);
+            var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);
             StateMachine.AddObserver(importantExceptionObserver);
 
             Example.ThrowOnFirstException = false;
@@ -42,7 +36,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
             var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionMessage);
             StateMachine.AddObserver(aggregateExceptionObserver);
 
-            var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantException);
+            var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);
             StateMachine.AddObserver(importantExceptionObserver);
 
             Example.ThrowOnFirstException = true;
@@ -55,23 +49,5 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
             Assert.AreEqual(1, importantExceptionObserver.Count);
             Assert.AreEqual(0, aggregateExceptionObserver.Count);
         }
-
-        [Test]
-        public void OnlyOneCancellationCallbackIsFired_OnlyOneCallbackThrowingExceptionMessageIsCaught()
-        {
-            // Arrange
-            var aggregateExceptionObserver = new CatchStateObserver(x => x == CancellationTokenCallbackThrowingExceptionExample.CallbackThrowingExceptionMessage);
-            StateMachine.AddObserver(aggregateExceptionObserver);
-
-            Example.ThrowOnFirstException = true;
-
-            // Act
-            RunExampleInThread();
-            WaitForExitConfirmation(1000);
-
-            // Assert            
-            Assert.AreEqual(1, aggregateExceptionObserver.Count);
-        }
     }
-
 }

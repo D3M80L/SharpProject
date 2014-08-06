@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MultithreadingExamples.Examples.OptimizationSensibles;
-using MultithreadingExamples.Examples.ReadWrites;
+﻿using MultithreadingExamples.Examples.CooperativeCancellations;
 using MultithreadingExamples.Examples.Signaling;
 using MultithreadingExamples.Examples.Tasks;
 using MultithreadingExamples.Examples.Threads;
@@ -14,6 +7,7 @@ using MultithreadingExamples.Tests.Examples.Collections;
 using MultithreadingExamples.Tests.Examples.CooperativeCancellations;
 using MultithreadingExamples.Tests.Examples.OptimizationSensibles;
 using MultithreadingExamples.Tests.Examples.Patterns;
+using MultithreadingExamples.Tests.Examples.ReadWrites;
 using MultithreadingExamples.Tests.Examples.Signaling;
 using MultithreadingExamples.Tests.Examples.Tasks;
 using MultithreadingExamples.Tests.Examples.ThreadingModels;
@@ -37,15 +31,22 @@ namespace MultithreadingExamples.Tests
                 .ExplainTest<AsyncCallbacksExampleTests>()
                 .ExplainTest<ThreadAbortExceptionExampleTests>()
                 .ExplainTest<ThreadInterrupdedExceptionExampleTests>()
-                .ExplainTest<CancellationTokenCallbackExamplesTests>()
-                .ExplainTest<CancellationTokenCallbackThrowingExceptionTests>()
-                .ExplainExample<UnsafeIncrement>()
-                .ExplainExample<SafeIncrement>()
+                .ExplainTest<CancellationTokenCallbackExampleTests>()
+                .ExplainTest<CancellationTokenCallbackThrowingExceptionExampleTests>()
+                .ExplainTest<CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExampleTests>()
+                .ExplainExample<UseIsCancellationRequestedExample>()
+                .ExplainExample<UseThrowIfCancellationRequestedExample>()
+                .ExplainTest<UnsafeIncrementExampleTests>()
+                .ExplainTest<SafeIncrementExampleTests>()
+                .ExplainTest<UnsafeVolatileExampleTests>()
                 .ExplainExample<InappropriateLockingExample>()
                 .ExplainExample<LockExample>();
 
             AfterShortBreak()
-                .ExplainTest<OptimizationSensibleTests>()
+                .ExplainTest<OptimizationSensibleExampleTests>()
+                .ExplainTest<BlockOptimizationWithVolatileExampleTests>()
+                .ExplainTest<BlockOptimizationWithVolatileReadWriteExampleTests>()
+                .ExplainTest<BlockOptimizationWithMemoryBarierExampleTests>()
                 .ExplainTest<TimerGarbageCollectorSensibleExampleTests>();
 
             AfterShortBreak()
@@ -57,16 +58,18 @@ namespace MultithreadingExamples.Tests
 
             AfterShortBreak()
                 .ExplainTest<AsyncTaskExampleTests>()
-                .ExplainTest<AsyncVoidExampleTests>();
+                .ExplainTest<AsyncVoidCrashingExampleTests>();
 
             AfterShortBreak()
-                .ExplainTest<ThreadLocalsTests>()
+                .ExplainTest<SharedStaticRandomInstanceExampleTests>()
+                .ExplainTest<ThreadStaticRandomInstanceExampleTests>()
+                .ExplainTest<ThreadLocalRandomInstanceExampleTests>()
                 .ExplainTest<LockingExampleTests>()
                 .ExplainTest<DoubleCheckedLazyTests>()
                 .ExplainTest<BlockingCollectionExampleTests>();
 
             AfterShortBreak()
-                .ExplainTest<OnlyOneInstanceCanBeExecutedOnMachine>()
+                .ExplainExample<OnlyOneInstanceCanBeExecutedOnMachineExample>()
                 .ExplainTest<ManualResetEventExampleTests>()
                 .ExplainTest<ManualResetEventSlimExampleTests>()
                 .ExplainTest<PulseExampleTests>()

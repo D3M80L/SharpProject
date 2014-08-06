@@ -19,7 +19,7 @@ namespace MultithreadingExamples.Tests.Examples.Threads
             RunExampleInThread();
 
             // Assert
-            Assert.IsTrue(countdownEvents.Wait(5000), message: "Timeouted with retrieving messages.");
+            Assert.IsTrue(countdownEvents.Wait(5000), "Timeouted with retrieving messages.");
 
             var distinctRunInThreadMessageCount = countdownEvents.GetStates()
                 .Distinct()
