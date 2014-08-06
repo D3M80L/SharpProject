@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.Threads
         public void ImportantExceptionHasBeenCatched()
         {
             // Arrange
-            var afterEndInvoke = new CatchStateObserver(x => x == AsyncCallbacksExample.AfterEndInvoke);
+            var afterEndInvoke = new CatchStateObserver(x => x == AsyncCallbacksExample.AfterEndInvokeState);
             StateMachine.AddObserver(afterEndInvoke);
 
             var importantException = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);

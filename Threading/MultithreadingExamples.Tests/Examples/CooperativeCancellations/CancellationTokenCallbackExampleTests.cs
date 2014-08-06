@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
         public void TwoRegisteredMethodsInCancellationTokenAreFired()
         {
             // Arrange
-            var countMessages = new CatchStateObserver(x => x == CancellationTokenCallbackExample.CancellationCallbackMessage);
+            var countMessages = new CatchStateObserver(x => x == CancellationTokenCallbackExample.CancellationCallbackState);
             StateMachine.AddObserver(countMessages);
 
             // Act

@@ -35,7 +35,7 @@ namespace MultithreadingExamples.Examples.Threads
         private void MakeSomeOtherWork()
         {
             Log.Info(DoingSomethingElseState);
-            Thread.Sleep(2000); // Simulate some work
+            Thread.Sleep(3000); // Simulate some work
             Log.Info(FinishedOtherWorkState);
         }
 

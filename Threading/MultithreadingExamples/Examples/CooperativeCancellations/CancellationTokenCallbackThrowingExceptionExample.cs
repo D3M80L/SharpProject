@@ -33,7 +33,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
             }
             catch (AggregateException)
             {
-                Log.Info(AggregateExceptionMessage);
+                Log.Info(AggregateExceptionState);
             }
         }
 

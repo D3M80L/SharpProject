@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
         public void ThrowOnFirstExceptionSetToFalse_AggregateExceptionShouldBeThrown()
         {
             // Arrange
-            var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionMessage);
+            var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionState);
             StateMachine.AddObserver(aggregateExceptionObserver);
 
             var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);
@@ -33,7 +33,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
         public void ThrowOnFirstExceptionSetToTrue_FirstExceptionShouldBeThrown()
         {
             // Arrange
-            var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionMessage);
+            var aggregateExceptionObserver = new CatchStateObserver(x => x == ExampleBase.AggregateExceptionState);
             StateMachine.AddObserver(aggregateExceptionObserver);
 
             var importantExceptionObserver = new CatchStateObserver(x => x == ExampleBase.ImportantExceptionState);

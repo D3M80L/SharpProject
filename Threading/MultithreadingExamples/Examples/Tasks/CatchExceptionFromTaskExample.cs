@@ -22,7 +22,7 @@ namespace MultithreadingExamples.Examples.Tasks
             }
             catch (AggregateException)
             {
-                Log.Info(AggregateExceptionMessage);
+                Log.Info(AggregateExceptionState);
             }
         }
 

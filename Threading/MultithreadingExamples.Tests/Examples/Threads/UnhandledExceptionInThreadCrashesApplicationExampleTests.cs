@@ -8,13 +8,13 @@ namespace MultithreadingExamples.Tests.Examples.Threads
     public sealed class UnhandledExceptionInThreadCrashesApplicationExampleTests : ExampleTestBase<UnhandledExceptionInThreadCrashesApplicationExample>
     {
         /// <summary>
-        /// Run this example not in standalone WpfApp.
+        /// Run this example in standalone WpfApp.
         /// IMPORTANT: This test will succeed in Nunit and Resharper
         /// SET legacyUnhandledExceptionPolicy enabled="1" in JetBrains config file
         /// see http://gojisoft.com/blog/2010/05/14/resharper-test-runner-hidden-thread-exceptions/ for details
         /// </summary>
         [Test]
-        public void ThreadThrowsExceptionButTheTestsSucceeds()
+        public void ThreadThrowsException()
         {
             // Arrange
             var finishedOtherWorkState = new CatchStateObserver(x => x == UnhandledExceptionInThreadCrashesApplicationExample.FinishedOtherWorkState);

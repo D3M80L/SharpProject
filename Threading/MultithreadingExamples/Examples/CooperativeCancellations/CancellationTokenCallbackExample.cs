@@ -5,7 +5,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
     public sealed class CancellationTokenCallbackExample : CooperativeCancellationExampleBase
     {
-        public const string CancellationCallbackMessage = "CancellationCallbackMessage";
+        public const string CancellationCallbackState = "CancellationCallbackState";
 
         protected override void OnRun()
         {
@@ -18,8 +18,8 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 
         private void Process(CancellationToken cancellationToken)
         {
-            cancellationToken.Register(() => TokenCallback(CancellationCallbackMessage));
-            cancellationToken.Register(() => TokenCallback(CancellationCallbackMessage));
+            cancellationToken.Register(() => TokenCallback(CancellationCallbackState));
+            cancellationToken.Register(() => TokenCallback(CancellationCallbackState));
         }
 
         private void TokenCallback(string message)

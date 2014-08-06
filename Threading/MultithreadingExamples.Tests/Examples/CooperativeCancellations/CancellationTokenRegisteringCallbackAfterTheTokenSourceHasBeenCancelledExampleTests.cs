@@ -11,7 +11,7 @@ namespace MultithreadingExamples.Tests.Examples.CooperativeCancellations
         public void RegisteringCallbacksOnTokenSource_CallbackMessageIsObserved()
         {
             // Arrange
-            var callbackMessageObserver = new CatchStateObserver(x => x == CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample.CallbackMessage);
+            var callbackMessageObserver = new CatchStateObserver(x => x == CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample.CallbackState);
             StateMachine.AddObserver(callbackMessageObserver);
 
             // Act

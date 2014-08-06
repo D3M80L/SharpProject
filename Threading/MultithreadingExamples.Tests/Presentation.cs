@@ -26,16 +26,17 @@ namespace MultithreadingExamples.Tests
         {
             AfterIntroduction()
                 .ExplainTest<ForegroundThreadPreventsProcessToStopExampleTests>()
+                .ExplainExample<BackgroundThreadAndFinallyBlockExample>()
                 .ExplainTest<UnhandledExceptionInThreadCrashesApplicationExampleTests>()
                 .ExplainTest<ModifiedClosureExampleTests>()
                 .ExplainTest<AsyncCallbacksExampleTests>()
                 .ExplainTest<ThreadAbortExceptionExampleTests>()
-                .ExplainTest<ThreadInterrupdedExceptionExampleTests>()
+                //.ExplainTest<ThreadInterrupdedExceptionExampleTests>()
                 .ExplainTest<CancellationTokenCallbackExampleTests>()
                 .ExplainTest<CancellationTokenCallbackThrowingExceptionExampleTests>()
                 .ExplainTest<CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExampleTests>()
                 .ExplainExample<UseIsCancellationRequestedExample>()
-                .ExplainExample<UseThrowIfCancellationRequestedExample>()
+                //.ExplainExample<UseThrowIfCancellationRequestedExample>()
                 .ExplainTest<UnsafeIncrementExampleTests>()
                 .ExplainTest<SafeIncrementExampleTests>()
                 .ExplainTest<UnsafeVolatileExampleTests>()
@@ -46,7 +47,7 @@ namespace MultithreadingExamples.Tests
                 .ExplainTest<OptimizationSensibleExampleTests>()
                 .ExplainTest<BlockOptimizationWithVolatileExampleTests>()
                 .ExplainTest<BlockOptimizationWithVolatileReadWriteExampleTests>()
-                .ExplainTest<BlockOptimizationWithMemoryBarierExampleTests>()
+                //.ExplainTest<BlockOptimizationWithMemoryBarierExampleTests>()
                 .ExplainTest<TimerGarbageCollectorSensibleExampleTests>();
 
             AfterShortBreak()

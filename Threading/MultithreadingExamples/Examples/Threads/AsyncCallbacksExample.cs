@@ -8,7 +8,7 @@ namespace MultithreadingExamples.Examples.Threads
     {
         public const string Calculating = "Calculating";
         public const string CalculationCallbackMessage = "CalculationCallbackMessage";
-        public const string AfterEndInvoke = "AfterEndInvoke";
+        public const string AfterEndInvokeState = "AfterEndInvokeState";
 
         protected override void OnRun()
         {
@@ -31,7 +31,7 @@ namespace MultithreadingExamples.Examples.Threads
                 var target = (Func<int, int>)asyncResult.AsyncState;
                 int result = target.EndInvoke(asyncResult); 
 
-                Log.Info(AfterEndInvoke); // Never called, because the exception was thrown
+                Log.Info(AfterEndInvokeState); // Never called, because the exception was thrown
             }
             catch (VeryImportantException)
             {

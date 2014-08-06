@@ -12,7 +12,7 @@ namespace MultithreadingExamples.Tests.Examples.Tasks
         public void AnyExceptionFromTaskIsRethrownInAggregateException()
         {
             // Arrange
-            var aggregateExceptionState = new CatchStateObserver(x=>x == ExampleBase.AggregateExceptionMessage);
+            var aggregateExceptionState = new CatchStateObserver(x=>x == ExampleBase.AggregateExceptionState);
             StateMachine.AddObserver(aggregateExceptionState);
 
             // Act

@@ -5,7 +5,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
 {
     public sealed class CancellationTokenRegisteringCallbackAfterTheTokenSourceHasBeenCancelledExample : CooperativeCancellationExampleBase
     {
-        public const string CallbackMessage = "CallbackMessage";
+        public const string CallbackState = "CallbackState";
 
         protected override void OnRun()
         {
@@ -21,7 +21,7 @@ namespace MultithreadingExamples.Examples.CooperativeCancellations
         private void Process(CancellationToken cancellationToken)
         {
             // note, that the cancellation token is already cancelled. Registering a callback will invoke the callback immediately
-            cancellationToken.Register(() => Log.Info(CallbackMessage));
+            cancellationToken.Register(() => Log.Info(CallbackState));
         }
     }
 }
