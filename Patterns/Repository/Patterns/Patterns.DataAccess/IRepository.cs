@@ -6,7 +6,7 @@
     }
 
     public interface IRepository<TModel> : IRepository
-    where TModel : class
+        where TModel : class
     {
 
     }
