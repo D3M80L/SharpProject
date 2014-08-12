@@ -8,14 +8,14 @@ namespace Patterns.DataAccess
     /// <summary>
     /// A simple example of an generic Unit Of Work pattern
     /// </summary>
-    public interface IUnitOfWork
+    public interface IUnitOfWork 
     {
         /// <summary>
         /// Get a specific instance of registered context
         /// </summary>
         /// <typeparam name="TContext"></typeparam>
         /// <returns>Instance of specific context</returns>
-        TContext Context<TContext>()
+        TContext Context<TContext>(string name = null)
             where TContext : class;
 
         /// <summary>

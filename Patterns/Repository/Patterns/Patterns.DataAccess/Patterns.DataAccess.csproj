@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDisposableUnitOfWork.cs" />
+    <Compile Include="Infrastructure\ContextItem.cs" />
     <Compile Include="Infrastructure\ContextItemBase.cs" />
     <Compile Include="Infrastructure\LazyContextItem.cs" />
     <Compile Include="IRepository.cs" />

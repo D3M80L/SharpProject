@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestData\ContextMock.cs" />
-    <Compile Include="UnitOfWorkTests.cs" />
+    <Compile Include="Infrastructure\OneContextedUnitOfWorkTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

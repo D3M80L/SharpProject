@@ -2,10 +2,15 @@
 
 namespace Patterns.DataAccess.Infrastructure
 {
-    public abstract class ContextItemBase
+    public abstract class ContextItemBase : IDisposable
     {
         protected ContextItemBase(string name)
         {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+
             Name = name;
         }
 
@@ -19,36 +24,27 @@ namespace Patterns.DataAccess.Infrastructure
         }
 
         protected abstract void OnSave();
-    }
 
-    public sealed class ContextItem<TContext> : ContextItemBase
-        where TContext : class
-    {
-        private readonly Action<TContext> _saveAction = null;
-        private readonly TContext _context = null;
-
-        public ContextItem(TContext context, Action<TContext> saveAction = null) : this(context, name: typeof(TContext).FullName, saveAction: saveAction)
+        private bool _disposed = false;
+        public void Dispose()
         {
-            
-        }
-
-        public ContextItem(TContext context, string name, Action<TContext> saveAction = null) : base(name)
-        {
-            _saveAction = saveAction;
-            _context = context;
-        }
-
-        public override object Context
-        {
-            get { return _context; }
-        }
-
-        protected override void OnSave()
-        {
-            if (_saveAction != null)
+            if (_disposed)
             {
-                _saveAction(_context);
+                return;
+            }
+
+            _disposed = true;
+
+            try
+            {
+                OnDispose();
+            }
+            catch
+            {
+                
             }
         }
+
+        protected abstract void OnDispose();
     }
 }

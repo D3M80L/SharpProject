@@ -8,9 +8,8 @@ namespace Patterns.DataAccess.Tests.TestData
 {
     public class ContextMock
     {
-        public virtual void Save()
-        {
-            
-        }
+        public virtual void Save() { }
+
+        public virtual void Dispose() { }
     }
 }
