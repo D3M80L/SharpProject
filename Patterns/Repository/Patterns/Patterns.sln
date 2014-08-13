@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RRSL", "RRSL", "{BCC9854A-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.DataAccess.Tests", "Patterns.DataAccess.Tests\Patterns.DataAccess.Tests.csproj", "{B6FFF544-89D5-40DC-A2C2-28262C9C6713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.MVVM.Tests", "Patterns.MVVM.Tests\Patterns.MVVM.Tests.csproj", "{F731B8AF-B8D9-447D-AE59-24F118A25FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{B6FFF544-89D5-40DC-A2C2-28262C9C6713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6FFF544-89D5-40DC-A2C2-28262C9C6713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6FFF544-89D5-40DC-A2C2-28262C9C6713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F731B8AF-B8D9-447D-AE59-24F118A25FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F731B8AF-B8D9-447D-AE59-24F118A25FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F731B8AF-B8D9-447D-AE59-24F118A25FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F731B8AF-B8D9-447D-AE59-24F118A25FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +105,6 @@ Global
 		{54F88416-EFCC-4D42-91E0-500AAB4DDBA6} = {BCC9854A-3717-4C81-BB21-2976C9123F0B}
 		{BCC9854A-3717-4C81-BB21-2976C9123F0B} = {718D83B3-8055-4CDA-891F-5F0CBFBCB2C4}
 		{B6FFF544-89D5-40DC-A2C2-28262C9C6713} = {50D4CDEF-CAE8-46C8-B615-CBACC1A8F47F}
+		{F731B8AF-B8D9-447D-AE59-24F118A25FC0} = {E551AEDD-421F-4283-800E-3EA4EAA04FFC}
 	EndGlobalSection
 EndGlobal

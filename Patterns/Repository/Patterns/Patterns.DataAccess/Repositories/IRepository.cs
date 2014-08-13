@@ -1,4 +1,4 @@
-﻿namespace Patterns.DataAccess
+﻿namespace Patterns.DataAccess.Repositories
 {
     public interface IRepository
     {

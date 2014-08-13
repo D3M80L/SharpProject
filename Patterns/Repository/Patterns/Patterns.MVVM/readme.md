@@ -1,0 +1,1 @@
+﻿This small 'framework' presents an MVVM-MF (Model First) approach. 

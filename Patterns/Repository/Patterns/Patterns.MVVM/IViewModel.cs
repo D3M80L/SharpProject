@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Patterns.MVVM.Infrastructure.ViewModels;
 
 namespace Patterns.MVVM
 {
@@ -19,6 +20,8 @@ namespace Patterns.MVVM
     {
         Guid Id { get; }
 
+        bool CanNavigate(NavigationContext navigationContext);
+
         void Navigate(NavigationContext navigationContext);
 
         void Activate();
@@ -35,31 +38,5 @@ namespace Patterns.MVVM
         void AddViewModel(IViewModel viewModel);
 
         IEnumerable<IViewModel> AvailableViewModels { get; }
-    }
-
-
-    public enum ViewModelState
-    {
-        Created,
-
-        Initializing,
-
-        Initialized,
-
-        Activating,
-
-        Activated,
-
-        Deactivating,
-
-        Deactivated,
-
-        Closing,
-
-        Closed,
-
-        Disposing,
-
-        Disposed
     }
 }
