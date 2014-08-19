@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html manifest="/cache.appcache">
+<head>
+    <title>App Offline example</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+
+    <script>
+        function logMessage(message) {
+            var log = document.getElementById('log');
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(message));
+            log.appendChild(li);
+        }
+
+        window.onoffline = function () {
+            logMessage('Application is offline.');
+        };
+
+        window.ononline = function () {
+            logMessage('Application is online.');
+        };
+
+        var appCache = window.applicationCache;
+        appCache.oncached = function () {
+            logMessage('AppCache - Cached.');
+        };
+
+        appCache.onchecking = function () {
+            logMessage('AppCache - Checking...');
+        };
+
+        appCache.ondownloading = function () {
+            logMessage('AppCache - Downloading...');
+        };
+
+        appCache.onobsolete = function () {
+            logMessage('AppCache - Obsolete.');
+        };
+
+        appCache.onprogress = function (progressEvent) {
+			if (progressEvent.lengthComputable) {
+				logMessage('AppCache - Progress.' + progressEvent.loaded + '/' + progressEvent.total);
+			} else {
+				logMessage('AppCache - Progress...');
+			}
+        };
+
+        appCache.onnoupdate = function () {
+            logMessage('AppCache - No update.');
+        };
+
+        appCache.onerror = function () {
+            logMessage('AppCache - Error.');
+        };
+
+        appCache.onupdateready = function () {
+            logMessage('AppCache - Update ready.');
+            appCache.swapCache();
+        };
+    </script>
+</head>
+<body>
+	<a href="/onlineonly/online.html">Online page</a>
+    <ul id="log">
+        <li>Created</li>
+    </ul>
+</body>
+</html>

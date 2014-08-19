@@ -1,0 +1,10 @@
+﻿CACHE MANIFEST
+#Version 1.4
+NETWORK:
+/online
+
+CACHE:
+/style.css
+
+FALLBACK:
+/ /offline.html
