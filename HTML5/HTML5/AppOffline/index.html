@@ -3,8 +3,13 @@
 <head>
     <title>App Offline example</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
-
-    <script>
+</head>
+<body>
+	<a href="/onlineonly/online.html">Online page</a>
+    <ul id="log">
+        <li>Created</li>
+    </ul>
+	    <script>
         function logMessage(message) {
             var log = document.getElementById('log');
             var li = document.createElement('li');
@@ -22,47 +27,43 @@
 
         var appCache = window.applicationCache;
         appCache.oncached = function () {
-            logMessage('AppCache - Cached.');
+            logMessage('AppCache - oncached.');
         };
 
         appCache.onchecking = function () {
-            logMessage('AppCache - Checking...');
+            logMessage('AppCache - onchecking.');
         };
 
         appCache.ondownloading = function () {
-            logMessage('AppCache - Downloading...');
+            logMessage('AppCache - ondownloading.');
         };
 
         appCache.onobsolete = function () {
-            logMessage('AppCache - Obsolete.');
+            logMessage('AppCache - onobsolete.');
         };
 
         appCache.onprogress = function (progressEvent) {
 			if (progressEvent.lengthComputable) {
-				logMessage('AppCache - Progress.' + progressEvent.loaded + '/' + progressEvent.total);
+				logMessage('AppCache - onprogress ' + progressEvent.loaded + '/' + progressEvent.total + '.');
 			} else {
-				logMessage('AppCache - Progress...');
+				logMessage('AppCache - onprogress.');
 			}
         };
 
         appCache.onnoupdate = function () {
-            logMessage('AppCache - No update.');
+            logMessage('AppCache - onnoupdate.');
         };
 
-        appCache.onerror = function () {
-            logMessage('AppCache - Error.');
+        appCache.onerror = function (e) {
+            logMessage('AppCache - onerror.');
         };
 
         appCache.onupdateready = function () {
-            logMessage('AppCache - Update ready.');
+            logMessage('AppCache - onupdateready.');
             appCache.swapCache();
         };
+		
+		logMessage('IsOnline = ' + navigator.onLine);
     </script>
-</head>
-<body>
-	<a href="/onlineonly/online.html">Online page</a>
-    <ul id="log">
-        <li>Created</li>
-    </ul>
 </body>
 </html>
