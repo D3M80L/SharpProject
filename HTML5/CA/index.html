@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html manifest="/cache.appcache">
+<head>
+    <title>Cellular automata</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<canvas 
+		style="border: 1px solid red"
+		width="640"
+		height="480"
+		id="drawingCanvas" />
+	
+	<script>
+		function drawPoint(canvasData, value, offset) {
+			var index = offset;
+			var color = value * 255;
+			canvasData.data[index++] = color;
+			canvasData.data[index++] = color;
+			canvasData.data[index++] = color;
+			canvasData.data[index++] = 255;
+		}
+		
+		$(function() {
+			var canvas = document.getElementById('drawingCanvas');
+			var context = canvas.getContext('2d');
+			var canvasData = context.createImageData(canvas.width, canvas.height);
+			
+			var T = 0;
+			var T_1 = 1;
+			var T_2 = 2;
+			
+			var steps = [];
+			steps[T] = [];
+			steps[T_1] = [];
+			steps[T_2] = [];
+			
+			for (var x = 0; x < canvasData.width; x++) {
+			
+				if (x == canvasData.width / 2) {
+					steps[T_1][x] = 1;
+				} else {
+					steps[T_1][x] = 0;
+				}
+				steps[T_1][x] = Math.round(Math.random());
+				
+				drawPoint(canvasData,steps[T_1][x],x*4);
+			}
+			
+			var rules = [];
+			rules[80] = [0,1,0,1,1,0,1,0];
+			rules[184] = [0,0,0,1,1,1,0,1];
+
+			var idx = canvas.width * 4; 			
+			for (var y = 1; y < canvasData.height; y++) {
+				for (var x = 0; x < canvasData.width; x++) {
+					var pattern = 0;
+					
+					if (x == 0) {
+						pattern = steps[T_1][canvasData.width - 1] * 4;
+					} else {
+						pattern = steps[T_1][x - 1] * 4;
+					}
+					
+					pattern += steps[T_1][x] * 2;
+					
+					if (x == canvasData.width - 1) {
+						pattern += steps[T_1][0];
+					} else {
+						pattern += steps[T_1][x+1];
+					}
+					
+					steps[T][x] = rules[80][pattern];
+
+					// Update the values of the pixel;
+					drawPoint(canvasData,steps[T][x],idx);
+					idx += 4;
+				}
+				
+				// Swap arrays (reuse)
+				var tmp = steps[T_2];
+				steps[T_2] = steps[T_1];
+				steps[T_1] = steps[T];
+				steps[T] = tmp;
+			}
+			
+			context.putImageData(canvasData, 0, 0);
+		});
+    </script>
+</body>
+</html>
