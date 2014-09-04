@@ -11,20 +11,21 @@ namespace Patterns.RequestHandlerResponse
             _handlerFactory = handlerFactory;
         }
 
-        public TResponse Handle<TRequest, TResponse>(TRequest request)
-            where TRequest : class 
-            where TResponse : class 
+        public object Handle(object request)
         {
             if (request == null)
             {
                 throw new ArgumentNullException("request");
             }
 
-            using (var handler = _handlerFactory.GetHandlerFor(request.GetType()))
+            using (var handler = _handlerFactory.BuildHandlerFor(request.GetType()))
             {
-                // TODO: send request to handler
+                var handlerContext = new HandlerContext();
+                handlerContext.Request = request;
 
-                return default (TResponse);
+                handler.Handle(handlerContext);
+
+                return handlerContext.Response;
             }
         }
     }

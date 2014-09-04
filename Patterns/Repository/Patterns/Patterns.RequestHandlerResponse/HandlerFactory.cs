@@ -7,10 +7,10 @@ namespace Patterns.RequestHandlerResponse
     {
         private readonly HandlerPerRequestTypeContainer _handlerContainer = new HandlerPerRequestTypeContainer ();
 
-        public override IHandler GetHandlerFor(Type requestType)
+        public override IHandler BuildHandlerFor(Type requestType)
         {
 
-            var handler = _handlerContainer.GetHandlerFor(requestType);
+            var handler = _handlerContainer.BuildHandlerFor(requestType);
 
             if (handler != null)
             {
@@ -21,14 +21,14 @@ namespace Patterns.RequestHandlerResponse
 
         public override void SetHandlerForType(Type type, IHandler handler)
         {
-
-            _handlerContainer.SetHandlerForType(type, handler);
+            throw new NotImplementedException();
+            //_handlerContainer.SetHandlerForType(type, handler);
         }
     }
 
     public abstract class HandlerFactoryBase : IHandlerFactory
     {
-        public abstract IHandler GetHandlerFor(Type requestType);
+        public abstract IHandler BuildHandlerFor(Type requestType);
         public abstract void SetHandlerForType(Type type, IHandler handler);
     }
 }

@@ -64,6 +64,11 @@ namespace Patterns.MVVM
 
         public bool CanNavigate(NavigationContext navigationContext)
         {
+            if (navigationContext == null)
+            {
+                throw new ArgumentNullException("navigationContext");
+            }
+
             ThrowIfDisposed();
 
             return OnCanNavigate(navigationContext);
@@ -95,21 +100,44 @@ namespace Patterns.MVVM
 
         private void RequestActivate()
         {
-            OnActivate();
+            if (SetState(ViewModelState.Activating))
+            {
+                OnActivating();
+            }
         }
 
         public void Deactivate()
         {
             ThrowIfDisposed();
 
-            throw new NotImplementedException();
+            if (SetState(ViewModelState.Deactivating))
+            {
+                
+            }
         }
 
         public void Close()
         {
             ThrowIfDisposed();
 
-            throw new NotImplementedException();
+            if (SetState(ViewModelState.Closing))
+            {
+                var deferral = new ViewModelClosingDefferal(closedAction: Closed, closingRejectedAction: CloseRejected, currentState: State);
+                OnClosing(deferral);
+            }
+        }
+
+        private void CloseRejected(ViewModelState stateBeforeCloseRequest)
+        {
+            SetState(stateBeforeCloseRequest);
+        }
+
+        private void Closed()
+        {
+            if (SetState(ViewModelState.Closed))
+            {
+                OnClosed();
+            }
         }
 
         private bool _isDisposed = false;
@@ -132,8 +160,7 @@ namespace Patterns.MVVM
             }
         }
 
-
-        protected virtual void OnActivate() { }
+        protected virtual void OnActivating() { }
 
         protected virtual void OnBusyChanged(bool newValue) { }
 
@@ -142,9 +169,19 @@ namespace Patterns.MVVM
             return true;
         }
 
+        protected virtual void OnClosing(ViewModelClosingDefferal defferal)
+        {
+            defferal.Close();
+        }
+
+        protected virtual void OnClosed()
+        {
+            
+        }
+
         protected virtual void OnDispose() { }
 
-        protected virtual void OnInitialize(ViewModelInitializationDefferal defferal)
+        protected virtual void OnInitializing(ViewModelInitializationDefferal defferal)
         {
             defferal.Initialized();
         }
@@ -176,13 +213,6 @@ namespace Patterns.MVVM
             }
         }
 
-        private bool SetState(ViewModelState viewModelState)
-        {
-            // TODO: check the state graph
-            State = viewModelState;
-            return true;
-        }
-
         private bool CheckInitialization(Action continuationAction)
         {
             if (State == ViewModelState.Initializing)
@@ -193,11 +223,24 @@ namespace Patterns.MVVM
             if (State == ViewModelState.Created)
             {
                 var context = new ViewModelInitializationDefferal(continuationAction);
-                SetState(ViewModelState.Initializing);
-                OnInitialize(context);
+                if (SetState(ViewModelState.Initializing))
+                {
+                    OnInitializing(context);
+                }
                 return false;
             }
 
+            return true;
+        }
+
+        private bool SetState(ViewModelState viewModelState)
+        {
+            if (!ViewModelStateGraph.CanChangeTo(_viewModelState, viewModelState))
+            {
+                return false;
+            }
+
+            State = viewModelState;
             return true;
         }
     }
