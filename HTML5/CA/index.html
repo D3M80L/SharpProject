@@ -12,79 +12,113 @@
 		id="drawingCanvas" />
 	
 	<script>
-		function drawPoint(canvasData, value, offset) {
-			var index = offset;
-			var color = value * 255;
-			canvasData.data[index++] = color;
-			canvasData.data[index++] = color;
-			canvasData.data[index++] = color;
-			canvasData.data[index++] = 255;
-		}
-		
-		$(function() {
-			var canvas = document.getElementById('drawingCanvas');
-			var context = canvas.getContext('2d');
-			var canvasData = context.createImageData(canvas.width, canvas.height);
+		var cellularAutomata = (function() {
+			var canvasData = null;
+			var context = null;
+			var steps = [];
+			var rules = [];
+			
+			var width = 0;
+			var height = 0;
 			
 			var T = 0;
 			var T_1 = 1;
 			var T_2 = 2;
 			
-			var steps = [];
-			steps[T] = [];
-			steps[T_1] = [];
-			steps[T_2] = [];
-			
-			for (var x = 0; x < canvasData.width; x++) {
-			
-				if (x == canvasData.width / 2) {
-					steps[T_1][x] = 1;
-				} else {
-					steps[T_1][x] = 0;
-				}
-				steps[T_1][x] = Math.round(Math.random());
-				
-				drawPoint(canvasData,steps[T_1][x],x*4);
+			function drawNextPoint(value, offset) {
+				var index = offset;
+				var color = value * 255;
+				canvasData.data[index++] = color;
+				canvasData.data[index++] = color;
+				canvasData.data[index++] = color;
+				canvasData.data[index++] = 255;
 			}
 			
-			var rules = [];
-			rules[80] = [0,1,0,1,1,0,1,0];
-			rules[184] = [0,0,0,1,1,1,0,1];
-
-			var idx = canvas.width * 4; 			
-			for (var y = 1; y < canvasData.height; y++) {
-				for (var x = 0; x < canvasData.width; x++) {
-					var pattern = 0;
-					
-					if (x == 0) {
-						pattern = steps[T_1][canvasData.width - 1] * 4;
-					} else {
-						pattern = steps[T_1][x - 1] * 4;
-					}
-					
-					pattern += steps[T_1][x] * 2;
-					
-					if (x == canvasData.width - 1) {
-						pattern += steps[T_1][0];
-					} else {
-						pattern += steps[T_1][x+1];
-					}
-					
-					steps[T][x] = rules[80][pattern];
-
-					// Update the values of the pixel;
-					drawPoint(canvasData,steps[T][x],idx);
-					idx += 4;
-				}
+			function draw() {
+				context.putImageData(canvasData, 0, 0);
+			}
+			
+			function setCanvas(canvasId) {
+				var canvas = document.getElementById(canvasId);
+				context = canvas.getContext('2d');
+				canvasData = context.createImageData(canvas.width, canvas.height);
+				width = canvas.width;
+				height = canvas.height;
+				steps[T] = [];
+				steps[T_1] = [];
+				steps[T_2] = [];
 				
-				// Swap arrays (reuse)
+				rules = [];
+				rules[80] = [0,1,0,1,1,0,1,0];
+				rules[184] = [0,0,0,1,1,1,0,1];
+			
+			}
+			
+			function initializationConfiguration() {
+				for (var x = 0; x < width; x++) {
+					if (x == width / 2) {
+						steps[T_1][x] = 1;
+					} else {
+						steps[T_1][x] = 0;
+					}
+					steps[T_1][x] = Math.round(Math.random());
+					
+					drawNextPoint(steps[T_1][x],x*4);
+				}
+			}
+			
+			function swapArrays() {
 				var tmp = steps[T_2];
 				steps[T_2] = steps[T_1];
 				steps[T_1] = steps[T];
 				steps[T] = tmp;
 			}
 			
-			context.putImageData(canvasData, 0, 0);
+			function run(rule) {
+				initializationConfiguration();
+				
+				var idx = width * 4; 
+				
+				for (var y = 1; y < height; y++) {
+					for (var x = 0; x < width; x++) {
+						var pattern = 0;
+						
+						if (x == 0) {
+							pattern = steps[T_1][width - 1] * 4;
+						} else {
+							pattern = steps[T_1][x - 1] * 4;
+						}
+						
+						pattern += steps[T_1][x] * 2;
+						
+						if (x == width - 1) {
+							pattern += steps[T_1][0];
+						} else {
+							pattern += steps[T_1][x+1];
+						}
+						
+						steps[T][x] = rules[rule][pattern];
+
+						// Update the values of the pixel;
+						drawNextPoint(steps[T][x],idx);
+						idx += 4;
+					}
+					
+					swapArrays();
+				}
+				
+				draw();
+			}
+			
+			return {
+				setCanvas : setCanvas,
+				run: run
+			}
+		})();
+		
+		$(function() {
+			cellularAutomata.setCanvas('drawingCanvas');
+			cellularAutomata.run(184);
 		});
     </script>
 </body>
