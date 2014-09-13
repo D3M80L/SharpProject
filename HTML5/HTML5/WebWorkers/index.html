@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html manifest="/cache.appcache">
+<head>
+    <title>WebWorker example</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<input type="button" id="startWorker" value="Start Worker" disabled />
+	<input type="button" id="stopWorker" value="Stop Worker" disabled />
+    <ul id="log">
+        <li>Created</li>
+    </ul>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+    <script>
+	$(function() {
+		
+		var worker = null;
+		
+		function log(message) {
+			$('#log')
+				.append('<li>'+message+'</li>');
+		}
+		
+		function startWorker() {
+			log('Starting Worker');
+			worker = new Worker('Task.js');
+			setButtonAvailability();
+			worker.addEventListener('message', workerMessageCallback);
+
+			worker.postMessage('start');
+		}
+		
+		function workerMessageCallback(e) {
+			log('Worker sent:' + e.data);
+			
+			if (e.data === 'STOP') {
+				finishWorker();
+			}
+		}
+		
+		function finishWorker() {
+			log('Terminating');
+			worker.terminate();
+			worker = null;
+			setButtonAvailability();
+		}
+		
+		function stopWorker() {
+			setButtonAvailability();
+			worker.postMessage('stop');
+		}
+		
+		function setButtonAvailability() {
+			$('#startWorker').prop('disabled', worker !== null);
+			$('#stopWorker').prop('disabled', worker === null);
+		}
+		
+		$('#startWorker').click(startWorker);
+		$('#stopWorker').click(stopWorker);
+		
+		setButtonAvailability();
+	});
+    </script>
+</body>
+</html>
