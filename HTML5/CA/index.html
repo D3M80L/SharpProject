@@ -50,18 +50,20 @@
 				
 				rules = [];
 				rules[80] = [0,1,0,1,1,0,1,0];
+				rules[87] = [1,1,1,0,1,0,1,0];
+				rules[90] = [0,1,0,1,1,0,1,0];
 				rules[184] = [0,0,0,1,1,1,0,1];
 			
 			}
 			
-			function initializationConfiguration() {
+			function builInitSet() {
 				for (var x = 0; x < width; x++) {
 					if (x == width / 2) {
 						steps[T_1][x] = 1;
 					} else {
 						steps[T_1][x] = 0;
 					}
-					steps[T_1][x] = Math.round(Math.random());
+					//steps[T_1][x] = Math.round(Math.random());
 					
 					drawNextPoint(steps[T_1][x],x*4);
 				}
@@ -75,7 +77,7 @@
 			}
 			
 			function run(rule) {
-				initializationConfiguration();
+				builInitSet();
 				
 				var idx = width * 4; 
 				
@@ -118,7 +120,7 @@
 		
 		$(function() {
 			cellularAutomata.setCanvas('drawingCanvas');
-			cellularAutomata.run(184);
+			cellularAutomata.run(87);
 		});
     </script>
 </body>
