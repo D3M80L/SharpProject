@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation watch position</title>
+</head>
+<body>
+	<!--
+		See: http://diveintohtml5.info/geolocation.html
+		See: http://www.w3.org/TR/geolocation-API/
+	-->
+	<section>
+		<input type="button" id="startWatchLocationButton" value="Start watching location" />
+		<input type="button" id="stopWatchLocationButton" value="Stop watching location" />
+		
+		<label for="latitude">Latitude :</label>
+		<input type="text" id="latitude" name="latitude" />
+		
+		<label for="longitude">Longitude :</label>
+		<input type="text" id="longitude" name="longitude" />
+		
+		<label for="accuracy">Accuracy :</label>
+		<input type="text" id="accuracy" name="accuracy" />
+		
+		<label for="altitude">Altitude :</label>
+		<input type="text" id="altitude" name="altitude" />
+		
+		<label for="altitude_accuracy">Altitude accuracy :</label>
+		<input type="text" id="altitude_accuracy" name="altitude_accuracy" />
+		
+		<label for="speed">Speed :</label>
+		<input type="text" id="speed" name="speed" />
+		
+		<label for="timestamp">Timestamp :</label>
+		<input type="text" id="timestamp" name="timestamp" />
+		
+		<label for="heading">Heading :</label>
+		<input type="text" id="heading" name="heading" />
+		
+		<a href="" id="map" target="_blank">Show on map</a>
+		
+		<ul id="log"></ul>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+	$(function () {
+		$('#map').hide();
+		var watchId;
+		
+		$('#startWatchLocationButton').click(function () {
+			addLog("Starting watching...");
+			watchId = navigator.geolocation.watchPosition(displayPosition, positionFailure);
+		});
+		
+		$('#stopWatchLocationButton').click(function () {
+			navigator.geolocation.clearWatch(watchId);
+			addLog("Stopped watching.");
+		});
+		
+		function displayPosition(position) {
+			var coords = position.coords;
+			
+			$('#latitude').val(coords.latitude);
+			$('#longitude').val(coords.longitude);
+			$('#accuracy').val(coords.accuracy);
+			$('#altitude').val(coords.altitude);
+			$('#altitude_accuracy').val(coords.altitudeAccuracy);
+			$('#speed').val(coords.speed);
+			$('#timestamp').val(coords.timestamp);
+			$('#heading').val(coords.heading);
+			
+			$('#map').attr("href", "http://maps.google.com/maps?q=" + 
+				coords.latitude + ",+" +
+				coords.longitude + "+(Your location)&iwloc=A&hl=en");
+			$('#map').show();
+			addLog('Coordinations retrieved.');
+		}
+		
+		function positionFailure(ex) {
+			switch (ex.code) {
+				case 0:
+					addLog("UNKNOWN_ERROR");
+					break;
+				case 1:
+					addLog("PERMISSION_DENIED");
+					break;
+				case 2:
+					addLog("POSITION_UNAVAILABLE");
+					break;
+				case 3:
+					addLog("TIMEOUT");
+					break;
+			}
+		}
+		
+		function addLog(message) {
+			$("#log").append("<li>" + message + "</li>");
+		}
+	});
+	</script>
+</body>
+</html>
