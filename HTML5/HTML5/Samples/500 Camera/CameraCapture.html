@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera capture</title>
+</head>
+<body>
+	<video id="resultVideo" autoplay></video>
+	<img id="imageSnapshot" src="" />
+	<canvas id="drawingCanvas" />
+	
+	<script>
+		var video = document.getElementById('resultVideo');
+		var canvas = document.getElementById('drawingCanvas');
+		var canvasContext = canvas.getContext('2d');
+		var localMediaStream = null;
+		
+		function takeSnapshot() {
+			if (localMediaStream) {
+				canvas.width = 640;
+				canvas.height = 480;
+				canvasContext.drawImage(video, 0, 0);
+				document.getElementById('imageSnapshot').src = canvas.toDataURL('image/webp');
+			}
+		}
+		
+		video.addEventListener('click', takeSnapshot, false);
+		
+		navigator.getUserMedia = 
+		(
+			navigator.getUserMedia ||
+			navigator.webkitGetUserMedia ||
+			navigator.mozGetUserMedia ||
+			navigator.msGetUserMedia
+		);
+		
+		if (navigator.getUserMedia) {
+			navigator.getUserMedia(
+				{
+					video: true, 
+					audio: false
+				},
+				function(stream) {
+					video.src = window.URL.createObjectURL(stream);
+					localMediaStream = stream;
+				},
+				function (error) {
+					alert (error);
+				}
+			);
+		}
+	</script>
+</body>
+</html>
